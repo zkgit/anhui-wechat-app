@@ -1,0 +1,31 @@
+@import "../order/order.wxss";
+
+.pay_tip {
+  height: 60px;
+  background: #ff9e67;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.t_icon image {
+  width: 36px;
+  height: 44px;
+  margin-top:16rpx 
+}
+
+.t_text {
+  /* position: relative;
+  top: 50%;
+  bottom: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%); */
+  display: flex;
+  flex-direction: column;
+  margin-top:16rpx 
+}
+
+.to_order{
+  width:690rpx;height:88rpx;margin:90rpx 0 26rpx 30rpx;background-color:rgb(255,95,0);font-size:32rpx;text-align:center;line-height:2.8;border-radius:10rpx;color:#fff
+}
+.to_tip{
+color:rgb(136,136,136);font-size:28rpx;text-align:center;
+}

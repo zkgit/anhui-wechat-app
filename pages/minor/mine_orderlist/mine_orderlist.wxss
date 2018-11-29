@@ -1,0 +1,34 @@
+/* pages/minor/mine_orderlist/mine_orderlist.wxss */
+.page-content{ background-color:rgb(242,242,242);height:100%;width:100%;position:fixed;}
+.none-list{height:36rpx;text-align:center;line-height:1;font-size:36rpx;margin:20%}
+.child-box{height:252rpx;margin-top:20rpx;background-color:#fff}
+.item-img{width:140rpx;height:140rpx;margin:20rpx 19rpx 20rpx 24rpx;}
+.item-content{width:60%;height:140rpx;margin-top:32rpx}
+.item-content .title1{height:32rpx;width:100%;font-size:32rpx;color:rgb(51,51,51);line-height:1}
+.item-content .title2{height:26rpx;width:100%;font-size:26rpx;margin-top:18rpx;color:rgb(68,68,68);line-height:1}
+.item-content .title3{height:24rpx;width:100%;font-size:24rpx;margin-top:18rpx;color:rgb(153,153,153);line-height:1}
+.item-right-icon{width:91rpx;height:37rpx;float:right;margin:29rpx 20rpx;border-radius:18rpx;font-size: 24rpx;text-align: center;color: #fff;background-color: rgb(255, 95, 1);line-height:1.5}
+.item-bottom-box{width:100%;height:72rpx;border-top:1px solid rgb(240,240,240);display:flex;}
+.item-bottom-child{width:50%;}
+.item-bottom-box .small-img{width:30rpx;height:30rpx;float:left;margin-top:18rpx;margin-left:28%}
+.item-bottom-box .small-text{width:120rpx;height:60rpx;float:left;font-size:28rpx;margin-left:15rpx;color:rgb(153,153,153);line-height:2.5;text-align:left}
+
+/*激活弹窗  */
+.dialog-activate .title{font-size:34rpx;border-bottom:1rpx solid rgb(229,229,229);width:408rpx;line-height:1.8;margin:0 auto}
+.dialog-activate{width:480rpx !important;height:460rpx !important}
+.dialog-activate-bottombox{height:126rpx;width:408rpx;position:fixed;bottom:10rpx;left:36rpx}
+.dialog-activate-bottombox .btn1{height:63rpx;width:408rpx;background:rgb(255,95,0);color:#fff;line-height:1.8;font-size:32rpx;border-radius:8rpx}
+.dialog-activate-bottombox .btn2{height:60rpx;width:180rpx;color:rgb(178,178,178);font-size:30rpx}
+.warn-text{margin-left:60rpx;text-align:30rpx;color:rgb(102,102,102);margin-bottom:38rpx}
+/*添加设备弹窗  */
+.add-dialog-model-mask {position: fixed;width: 100%;height: 100%;z-index: 111;top: 0;background-color:rgba(0,0,0,.6);transition:.3s;}
+.add-dialog-model {width: 480rpx;height: 424rpx;position: fixed;top: 282rpx;left: 18%; background-color:#fff;overflow: hidden;z-index: 999;color: #fff; border-radius:15rpx;}
+.add-dialog-title{font-size:34rpx;border-bottom:1rpx solid rgb(229,229,229);width:408rpx;line-height:1.8;margin:0 auto;text-align:center;padding:15px 0 0;color:#000}
+.placeholder-style{font-size:26rpx;color:rgb(187,187,187)}
+.add-dialog-model input{width:408rpx;height:70rpx;background-color:rgb(238,238,238);color:rgb(187,187,187);font-size:26rpx;text-align:center;border-radius:10rpx}
+.add-dialog-content{height:110rpx;width:408rpx;border-bottom: 1rpx solid rgb(229,229,229);margin:40rpx auto;}
+.add-dialog-buttom{position:absolute;width:408rpx;height:120rpx;margin-left:36rpx;}
+.add-dialog-buttom .btn1{height:63rpx;width:408rpx;background:rgb(255,95,0);color:#fff;line-height:1.8;font-size:32rpx;border-radius:8rpx}
+.add-dialog-buttom .btn2{height:60rpx;width:180rpx;color:rgb(178,178,178);font-size:30rpx}
+.btn-hover{background-color: none}
+

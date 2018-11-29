@@ -1,0 +1,90 @@
+<import src="../../../style/dist/dialog/index.wxml" />
+<import src="../../../style/dist/toast/index.wxml" />
+
+<view class='zan-row list-top'>
+  <view class="zan-col zan-col-6 zan-col-offset-18 fs30 cf5 alic" bindtap='deletefcn'>{{checkbable?'正在编辑':'编辑'}}</view>
+</view>
+
+
+<view class='mt40'>
+  <view class='zan-row device mb20' wx:for='{{lists}}' wx:key="{{index}}">
+    <view class='zan-col zan-col-2 zan-col-offset-1 alic cf5' wx:if="{{checkbable}}"  data-index="{{index}}">
+      <view class="zan-icon {{item.ischeck? 'zan-icon-checked': 'zan-icon-check'}} " bindtap="checkboxChange" data-index="{{index}}"></view>
+    </view>
+    <view class="zan-col {{checkbable? 'zan-col-19': 'zan-col-22'}} zan-col-offset-1 fs30 device-list " bindtap='changebox' data-boxid="{{item.boxId}}">
+      <image src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAzUExURUxpcf+haf+8lf/7+P94KP9pEP/w5/9fAP9fAP////+KRP/Kq//Uuf+ZXP/l1v/axP+xghPqKO8AAAAIdFJOUwD///////+AFXA4nwAAARtJREFUSMel1VGSgyAQBNAGgWRQNPc/7VaJGMzCSNL+v2psZgo8f/8eYCwYC8bqOBnVathtYlSr4BhEomr7OE0i4lTbxUmkh0/bw3G34lXbwW6SXnJl29iHbBuF1baNl8PKS7VNbIqVVbVQfljEOtW28HbQEPXcGqfleujN31lUgyypbnp+3toDe3vWY8dtxuZIM2dby4jd8au0G0rw4kdsTnZlKkwOXsdsKczk04Y9OLgx+257PcdqioP2fc9+LtiM2nrCOpfUt5fx3FsPftheZ9v+X2HNfizGLPYL+7lVs//C4v5N+RHfWTAWjAVjwVgwFowFY8FYMBaMBWPBWDAWjAVjwVgwFowFY8FYMBaMBWPBWDAWjAVjwdg/XWI5Onig5ckAAAAASUVORK5CYII=' class='bd-ok' mode="aspectFill" wx:if="{{item.level=='1'}}"></image>
+      <view class='device-name ellipsis '>{{item.boxName?item.boxName:item.boxId}}</view>
+    </view>
+    <view class='device-img-box' bindtap='showBottomModal'>
+      <image class='device-img' src='../../../image/dot_more.png' ></image>
+    </view>
+    <!-- <view class='device-edit alic cff fs30' bindtap='editboxname'>修改</view> -->
+    
+  </view>
+</view>
+
+
+
+<view class='zan-row device mb20 ' bindtap='scan'>
+  <view class="zan-col zan-col-22 zan-col-offset-1 fs30 device-add-btn alic cf5 ">
+    <view class='zan-icon alic zan-icon-add-o'></view>
+    <text> 添加设备</text>
+  </view>
+</view>
+
+<view class='editline' wx:if='{{checkbable}}'>
+  <view class='zan-row'>
+    <view class="zan-col zan-col-8 l-bor fs30 alic " bindtap='deleteButton'>删除</view>
+    <view class="zan-col zan-col-8 l-bor fs30 alic " bindtap='allcheck'>{{isallcheck?'取消全选':'全选'}}</view>
+    <view class="zan-col zan-col-8 fs30 alic " bindtap='cancel'>取消</view>
+  </view>
+</view>
+
+<template is="zan-dialog" data="{{ zanDialog }}"></template>
+<template is="zan-toast" data="{{ zanToast }}"></template>
+
+<view class="zan-popup {{ showPopup ? 'zan-popup--show' : ''}}">
+  <!-- 遮罩层，有需要可以在遮罩层上增加点击事件 -->
+  <view class="zan-popup__mask" bindtap="togglePopup"></view>
+  <!-- 弹出层的内容放在此元素内 -->
+  <view class="dialog-container">
+    <view class="zan-dialog__header">修改设备名称</view>
+    <form bindsubmit="editConfirm">
+      <input class='eidt-input' maxlength="10" name="boxname" placeholder="例：我的客厅" />
+      <view class='dialog__footer'>
+        <button class='dialog__button fs32' bindtap="togglePopup">取消</button>
+        <button class='dialog__button fs32 cf5' form-type='submit'>确定</button>
+      </view>
+    </form>
+  </view>
+</view>
+
+<!--底部向上弹出窗  -->
+<view class="popup-example--bottom zan-popup zan-popup--bottom {{ showBottomPopup ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask" catchtap="showBottomModal"></view>
+    <view class="zan-popup__container">
+      <view class="zan-btns" style='height:177rpx;margin:0'>
+        <view class='fs30 v1 txt' bindtap='showPouModal'>激活该设备成为会员</view>
+        <!-- <view class='fs30 v2 txt' bindtap='editboxname'>重命名</view> -->
+      </view>
+    </view>
+  </view>
+
+  <!--选择激活类型弹窗  -->
+<view wx:if="{{showTypeDialog}}">
+  <view class='type-dialog-model-mask' bindtap=''></view>
+  <view class='type-dialog-model' style='position:fixed'>
+    <view class='type-dialog-title'>选择激活类型</view>
+  <scroll-view scroll-y class='type-dialog-content' >
+    <view wx:for='{{goodslistInfo}}' style='margin-bottom:32rpx'>
+      <view data-index='{{index}}' data-key='{{item.keyId}}' class="zan-icon zan-icon-{{item.checked?'checked':'check'}}"  style="color:rgb(255,95,0);font-size:28rpx;" catchtap='checkItemFun'>      
+          <text style='color:rgb(34,34,34);margin-left:10rpx'>{{item.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='type-dialog-buttom'>
+    <button class='btn1' catchtap="activationUse">立即激活</button>
+    <button class="btn2" catchtap="hidePopModal">取消</button>
+  </view>
+  </view>
+</view>

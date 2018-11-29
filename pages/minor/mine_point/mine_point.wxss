@@ -1,0 +1,9 @@
+image{
+  width: 100%;
+  height: 100%
+}
+view{
+  height:1203rpx;
+  width: 100%;
+  position: fixed;
+}

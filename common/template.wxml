@@ -1,0 +1,145 @@
+<!--顶部滑动导航-->
+<template name="topbarscroll">
+  <view class="nav-scroll">
+    <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+      <text wx:for="{{section}}" wx:key="id" id="{{item.id}}" catchtap="handleTap" class="nav-name {{item.id == currentId ? 'nav-hover' : ''}}">{{item.name}}</text>
+    </scroll-view>
+  </view>
+</template>
+
+
+<!-- loading 和列表部分  -->
+<template name="loadings">
+  <view class='_loading' hidden="{{!loading}}">{{loadtxt}}</view>
+</template>
+
+<!--栏目标题分离开  -->
+<template name="listtitle">
+  <view class="listNews">
+    <navigator url="{{url}}" wx:if="{{!_plan}}">
+      <view class="listTitle">
+        <view class="listText">
+          <text class="text">{{_title}}</text>
+        </view>
+        <view class='listMore'>
+          <text class="more">更多</text>
+          <image class='img' src='../../image/more_fr.png' mode="aspectFit"></image>
+        </view>
+      </view>
+    </navigator>
+
+    <view class="listTitle" wx:if="{{_plan}}">
+      <view class="listText">
+        <text class="text">{{_title}}</text>
+      </view>
+      <view class='listMore' bindtap="getUlike">
+        <image class='refresh' src='../../image/refresh.png' mode="aspectFit"></image>
+        <text class="re-more">换一批</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!--一级页面栏目内容  -->
+<template name="listSmall">
+  <view class="listNews">
+    <view class="list-flex">
+      <block wx:for="{{_list}}" wx:key="*this">
+        <view class="listBox">
+          <!--直播   -->
+          <navigator wx:if="{{item.channelId}}" url="../minor/detail-zb/detail-zb?channelId={{item.channelId}}">
+            <view class="boxPic">
+              <image src="{{item.image}}" />
+              <!-- <image src='../../image/men_poster.png' style='width:60rpx;height:32rpx;position:absolute;right:0'></image> -->
+              <view class='tv_tb_part'>
+                <image src='http://ikanpic.kanketv.com/image/live/icon2/{{item.kankeChannel}}.png' mode="aspectFill"></image>
+                <text>{{item.channelName}}</text>
+                <view class='pre'>
+                  <progress percent="{{item.percentage}}" activeColor="#ff5f00" active stroke-width="2" />
+                </view>
+              </view>
+            </view>
+            <view class="boxTitle1">
+              <text>{{item.title}}</text>
+            </view>
+          </navigator>
+          <!--点播  -->
+          <navigator wx:else url="../minor/detail-db/detail-db?id={{item.id}}&columnType={{item.videoType}}">
+            <view class="boxPic">
+              <image src="{{item.image}}" />
+            </view>
+            <view class="boxTitle1">
+              <text>{{item.title}}</text>
+            </view>
+            <!-- <view class="boxTitle2">
+                            <text>{{item.desc}}</text>
+                        </view> -->
+          </navigator>
+
+        </view>
+      </block>
+    </view>
+    <view class='_line'></view>
+  </view>
+</template>
+
+<!--二级页面栏目内容  -->
+<template name="listMore">
+  <view class="listNews">
+    <view class="list-flex">
+      <block wx:for="{{_list}}" wx:key="*this">
+        <view class="listBox">
+          <!--直播   -->
+          <navigator wx:if="{{item.channelId}}" url="../../minor/detail-zb/detail-zb?channelId={{item.channelId}}">
+            <view class="boxPic">
+              <image src="{{item.image}}" />
+              <view class='tv_tb_part'>
+                <image src='http://ikanpic.kanketv.com/image/live/icon2/{{item.kankeChannel}}.png' mode="aspectFill"></image>
+                <text>{{item.channelName}}</text>
+                <view class='pre'>
+                  <progress percent="{{item.percentage}}" activeColor="#ff5f00" active stroke-width="2" />
+                </view>
+              </view>
+            </view>
+            <view class="boxTitle1">
+              <text>{{item.title}}</text>
+            </view>
+          </navigator>
+          <!--点播  -->
+          <navigator wx:else url="../../minor/detail-db/detail-db?id={{item.id}}&columnType={{item.videoType}}">
+            <view class="boxPic">
+              <image src="{{item.image}}" />
+            </view>
+            <view class="boxTitle1">
+              <text>{{item.title}}</text>
+            </view>
+            <!-- <view class="boxTitle2">
+                            <text>{{item.desc}}</text>
+                        </view> -->
+          </navigator>
+        </view>
+      </block>
+    </view>
+  </view>
+</template>
+
+<!--一级页面栏目内容  -->
+<template name="listMoredb">
+  <view class="listNews">
+    <view class="list-flex">
+      <block wx:for="{{_list}}" wx:key="*this">
+        <view class="listBox">
+          <!--点播  -->
+          <navigator url="../minor/detail-db/detail-db?id={{item.id}}&columnType={{item.videoType}}">
+            <view class="boxPic">
+              <image src="{{item.image}}" />
+            </view>
+            <view class="boxTitle1">
+              <text>{{item.title}}</text>
+            </view>
+          </navigator>
+        </view>
+      </block>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,52 @@
+<import src="../../../style/dist/loadmore/index.wxml" />
+<import src="../../../style/dist/tab/index.wxml" />
+<import src="../../../style/dist/dialog/index.wxml" />
+<view class='zan-row list-top'>
+  <view class="zan-col zan-col-6 zan-col-offset-18  cf5 fs30 alic" bindtap='deletefcn'>{{checkbable?'正在编辑':'编辑'}}</view>
+</view>
+<view class='lsit'>
+  <view wx:for='{{lists}}' wx:key="{{index}}">
+    <view class='cf5 fs30 fwb pt10' wx:if='{{item.today}}'>今天</view>
+    <view class='fs30 fwb' wx:if='{{item.yesterday}}'>昨天</view>
+    <view class='fs30 fwb' wx:if='{{item.earlier}}'>更早</view>
+    <view class='zan-row listbox mt20'>
+      <view class='zan-col zan-col-4 alic cf5' wx:if="{{checkbable}}" bindtap="checkboxChange" data-index="{{index}}">
+        <view class="zan-icon alic {{item.ischeck?'zan-icon-checked':'zan-icon-check'}}"></view>
+      </view>
+      <view class="img-box zan-col zan-col-5 alic">
+        <navigator url="../detail-db/detail-db?id={{item.entityId}}&columnType={{item.videoType}}" wx:if="{{item.type==0}}">
+          <image src="{{item.image}}" mode="widthFix" class="img" />
+        </navigator>
+        <navigator url="../detail-zb/detail-zb?channelId={{item.entityId}}" wx:if="{{item.type!=0}}">
+          <image src="{{item.image}}" mode="widthFix" class="img" />
+        </navigator>
+      </view>
+      <view class="zan-col zan-col-14 zan-col-offset-1 ">
+        <view wx:if="{{item.type==0}}">
+          <view class="fs32 ellipsis">{{item.title}}</view>
+          <view class="fs26 ellipsis c99 pt10" wx:if="{{item.videoType!='film'}}">
+            观看至：{{item.programNumber}}集
+          </view>
+        </view>
+        <view class="fs32 ellipsis">{{item.channelName}}</view>
+        <view class="fs20 ellipsis c99 pt20">
+            {{item.addTime}}
+          </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+
+<view class='editline' wx:if='{{checkbable}}'>
+  <view class='zan-row'>
+    <view class="zan-col zan-col-8 l-bor  fs30 alic" bindtap='deleteButton'>删除</view>
+    <view class="zan-col zan-col-8 l-bor fs30 alic" bindtap='allcheck'>{{isallcheck?'取消全选':'全选'}}</view>
+    <view class="zan-col zan-col-8  fs30 alic" bindtap='cancel'>取消</view>
+  </view>
+</view>
+
+<template is="zan-dialog" data="{{ zanDialog }}"></template>
+<template is="zan-loadmore" data="{{ nodata}}" />
+<template is="zan-loadmore" data="{{ loading}}"></template>

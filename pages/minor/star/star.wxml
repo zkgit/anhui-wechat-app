@@ -1,0 +1,24 @@
+<view class='detail'>
+<view class="profile pl20 pr20 alic pt10">
+   <image src='{{detail.imageSmall?detail.imageSmall:"../../../image/default.jpg "}}' class='head_img'></image>
+   <view class='pt20 pb20 c33 fs28 alil'>
+       <text class='fwb'>简介：</text>
+       <text class='lh24'>{{is_zhan?detail.intro:detail.shortIntro}}</text>
+       <text class='c' hidden='{{!detail.intro}}' bindtap='changedes'>{{is_zhan?'收起':'展开'}}</text>
+  </view>
+</view>
+
+  <view class='recomment pt20 pl10 pr10 '>
+      <view class='fs34 c22 pl10 pr10'>相关推荐</view>
+      <view class="recomlist pt20 wp100">
+        <navigator url="../../minor/detail-db/detail-db?id={{item.id}}&columnType={{item.videoType}}" class='item' wx:for="{{list}}" open-type='redirect'>
+            <view class="boxPic ptr wp100">
+              <image src="{{item.image}}" class='pta'/>
+            </view>
+            <view class="boxTitle1 ellipsis pl40 fs28 c22">
+              <text>{{item.title}}</text>
+            </view>
+        </navigator>
+      </view>
+   </view>
+</view>

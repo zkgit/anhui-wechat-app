@@ -1,0 +1,92 @@
+/* pages/pay/pay.wxss */
+
+
+/* 弹窗样式 */
+.ord-popup-block{
+  width: 100%;
+  height: 526rpx
+}
+.ord-popup-head{
+  height: 125rpx;
+  width: 100%;
+  margin-top:20rpx;
+  display: flex;
+}
+.ord-popup-head-img{
+  width: 105rpx;
+  height: 104rpx;
+  margin-left: 20rpx;
+}
+.ord-popup-head-mid{
+  width:75%;
+  display:flex;
+  flex-direction:column;
+}
+.head-mid-text1{
+  font-size:30rpx;
+  margin-top:12rpx;
+  margin-left:20rpx;
+  height: 29rpx;
+}
+.head-mid-text2{
+  font-size:28rpx;
+  margin-top:29rpx;
+  margin-left:20rpx;
+  height: 22rpx;
+  color: rgb(255,95,0)
+}
+.ord-head-right{
+  right:1rpx;
+  width: 38rpx;
+  height: 38rpx;
+}
+.ord-head-right:active{
+  color: #ff4343;
+}
+.ord-content{
+  margin:28rpx auto;
+  width: 711rpx;
+  height: 144rpx;
+  display:flex;
+  flex-direction:column;
+  border-bottom: 1rpx solid #eeeeee
+}
+.ord-content .label-text{
+  font-size: 28rpx;
+}
+.ord-content .btn{
+  /* width: 137rpx; */
+  height: 54rpx;
+  border-radius: 5px;
+  border: 1rpx solid #999;
+  float: left;
+  font-size: 24rpx;
+  line-height: 2.2;
+  padding:0 8rpx 0 8rpx; 
+  margin-left: 10rpx;
+}
+.btnActive{
+  color: #fff;
+  background-color: rgb(255,95,0);
+  border: none !important;
+}
+.ord-content-block{
+  height:55rpx;
+  margin-top:15px;
+  overflow:hidden;
+}
+.ord-foot{
+  width: 710rpx;
+  height: 54rpx;
+  margin: 30rpx auto;
+  /* display: flex; */
+  position: relative
+}
+.ord-foot-text{
+  font-size: 28rpx;width: 242rpx;height: 60rpx;position: absolute;
+}
+.chose-num{
+  width:50%;height:54rpx;
+  position: absolute;
+  right:-80rpx;
+}

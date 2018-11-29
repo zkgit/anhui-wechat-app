@@ -1,0 +1,73 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/tvlive/tvlive",
+    "pages/indexdb/indexdb",
+    "pages/remote/remote",
+    "pages/mine/mine",
+    "pages/search/search",
+    "pages/vip/pay/pay",
+    "pages/vip/order/order",
+    "pages/vip/order_status/order_status",
+    "pages/minor/detail-db/detail-db",
+    "pages/minor/detail-zb/detail-zb",
+    "pages/minor/detail-zb-hk/detail-zb-hk",
+    "pages/minor/zblist/zblist",
+    "pages/minor/hotlist/hotlist",
+    "pages/minor/newlist/newlist",
+    "pages/minor/star/star",
+    "pages/minor/mine_history/mine_history",
+    "pages/minor/mine_collect/mine_collect",
+    "pages/minor/mine_order/mine_order",
+    "pages/minor/mine_point/mine_point",
+    "pages/minor/mine_buy/mine_buy",
+    "pages/minor/mine_password/mine_password",
+    "pages/minor/mine_device/mine_device",
+    "pages/minor/mine_feedback/mine_feedback",
+    "pages/minor/mine_orderlist/mine_orderlist"
+  ],
+  "window": {
+    "backgroundTextStyle": "white",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "安徽电信",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "color": "#737373",
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#FF5F01",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/icon_bar1.png",
+        "selectedIconPath": "image/icon_bar1_1.png"
+      },
+      {
+        "pagePath": "pages/tvlive/tvlive",
+        "text": "频道",
+        "iconPath": "image/icon_bar2.png",
+        "selectedIconPath": "image/icon_bar2_2.png"
+      },
+      {
+        "pagePath": "pages/remote/remote",
+        "iconPath": "image/icon_bar3.png",
+        "text": "遥控器",
+        "selectedIconPath": "image/icon_bar3_3.png"
+      },
+      {
+        "pagePath": "pages/indexdb/indexdb",
+        "text": "点播",
+        "iconPath": "image/icon_bar4.png",
+        "selectedIconPath": "image/icon_bar4_4.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "image/icon_bar5.png",
+        "selectedIconPath": "image/icon_bar5_5.png"
+      }
+    ]
+  }
+}

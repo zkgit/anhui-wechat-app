@@ -1,0 +1,75 @@
+<import src="../../style/dist/dialog/index.wxml" />
+
+<view class='pl40 pr40 wp100 ovh bsz remote'>
+  <view class='mt60 ovh'>
+    <!--首页  -->
+    <view class='item  fl' hover-class='itemactive' bindtouchstart="svgpress" data-keycode='468'>
+      <image src='http://miniapps.kanketv.com/image/apptest/re_home.png' class='img1' style='height:46rpx;'></image>
+      <image src='http://miniapps.kanketv.com/image/apptest/re_home_press.png' class='img2' style='height:46rpx;'></image>
+    </view>
+    <view class='item fr'>
+      <image src='http://miniapps.kanketv.com/image/apptest/re_off.png' mode='widthFix'></image>
+    </view>
+  </view>
+
+  <view class='svg ptr ovh bsz' hidden='{{keynum!="default"}}'>
+    <image src='{{svgbg}}' class='svgbg'></image>
+    <view class='cover svg-up' bindtouchstart="svgpress" bindtouchmove="svgmove" bindtouchend="svgend" data-keycode='38'></view>
+    <view class='cover svg-right' bindtouchstart="svgpress" bindtouchmove="svgmove" bindtouchend="svgend" data-keycode='39'></view>
+    <view class='cover svg-bottom' bindtouchstart="svgpress" bindtouchmove="svgmove" bindtouchend="svgend" data-keycode='40'></view>
+    <view class='cover svg-left' bindtouchstart="svgpress" bindtouchmove="svgmove" bindtouchend="svgend" data-keycode='37'></view>
+    <view class='svg-ok item' hover-class='svg-ok-active' bindtouchstart="svgpress" bindtouchmove="svgmove" bindtouchend="svgend" data-keycode='13'>
+    </view>
+  </view>
+  <view class='num ovh' hidden='{{keynum!="num"}}'>
+    <view class='li' bindtouchstart="svgpress" data-keycode='49'>1</view>
+    <view class='li' bindtouchstart="svgpress" data-keycode='50'>2</view>
+    <view class='li' bindtouchstart="svgpress" data-keycode='51'>3</view>
+    <view class='li' bindtouchstart="svgpress" data-keycode='52'>4</view>
+    <view class='li' bindtouchstart="svgpress" data-keycode='53'>5</view>
+    <view class='li' bindtouchstart="svgpress" data-keycode='54'>6</view>
+    <view class='li' bindtouchstart="svgpress" data-keycode='55'>7</view>
+    <view class='li' bindtouchstart="svgpress" data-keycode='56'>8</view>
+    <view class='li' bindtouchstart="svgpress" data-keycode='57'>9</view>
+    <view class='li' bindtouchstart="svgpress" data-keycode=''>#</view>
+    <view class='li' bindtouchstart="svgpress" data-keycode='48'>0</view>
+    <view class='li' bindtouchstart="svgpress" data-keycode=''>&</view>
+  </view>
+  <view class='mt70 ovh ptr'>
+    <!--菜单  -->
+    <view class='item  pta l0 t0' hover-class='itemactive' bindtouchstart="svgpress" data-keycode='36'>
+      <image src='http://miniapps.kanketv.com/image/apptest/re_menu.png' class='img1' style='height:42rpx;'></image>
+      <image src='http://miniapps.kanketv.com/image/apptest/re_menu_press.png' style='height:42rpx;' class='img2'></image>
+    </view>
+    <view class='key_num ovh fs28 c99'>
+      <view class='wp50 {{keynum=="default"?"active":""}} fl alic' bindtap='shownum' data-key='default'>按键</view>
+      <view class='wp50 alic fl {{keynum=="num"?"active":""}}' bindtap='shownum' data-key='num'>数字</view>
+    </view>
+    <!--返回  -->
+    <view class='item pta r0 t0' hover-class='itemactive' bindtouchstart="svgpress" data-keycode='640'>
+      <image src='http://miniapps.kanketv.com/image/apptest/re_back.png' class='img1' style='height:42rpx;'></image>
+      <image src='http://miniapps.kanketv.com/image/apptest/re_back_press.png' class='img2' style='height:42rpx;'></image>
+    </view>
+  </view>
+  <view class='key_vol'>
+    <!--音量减  -->
+    <view class='item fl' hover-class='itemactive' bindtouchstart="svgpress" data-keycode='448'>
+      <image src='http://miniapps.kanketv.com/image/apptest/jian.png' class='img1'></image>
+      <image src='http://miniapps.kanketv.com/image/apptest/jian_press.png' class='img2'></image>
+    </view>
+    <!-- <view class='item fl vol bsz alic bgcff' bindtap='changeVol'>
+      <image src="{{is_staticvol?'http://miniapps.kanketv.com/image/apptest/vol_press.png':'http://miniapps.kanketv.com/image/apptest/vol.png'}}"></image>
+    </view> -->
+    <!-- 音量静音 -->
+    <view class='item fl vol bsz alic bgcff' hover-class='itemactive' bindtouchstart="svgpress" data-keycode='449'>
+      <image src='http://miniapps.kanketv.com/image/apptest/vol.png' class='img1'></image>
+      <image src='http://miniapps.kanketv.com/image/apptest/vol_press.png' class='img2'></image>
+    </view>
+    <!--音量加  -->
+    <view class='item fl' hover-class='itemactive' bindtouchstart="svgpress" data-keycode='447'>
+      <image src='http://miniapps.kanketv.com/image/apptest/jia.png' class='img1'></image>
+      <image src='http://miniapps.kanketv.com/image/apptest/jia_press.png' class='img2'></image>
+    </view>
+  </view>
+</view>
+<template is="zan-dialog" data="{{ zanDialog }}"></template>

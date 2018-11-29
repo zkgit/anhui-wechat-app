@@ -1,0 +1,62 @@
+<import src="../../../style/dist/toast/index.wxml" />
+<view wx:if='{{order_hid}}'>
+  <view class='pay_tip zan-row'>
+    <!--交易成功  -->
+    <view class='t_icon zan-col zan-col-3 zan-col-offset-1' wx:if='{{info.status==1}}'>
+      <image src="../../../image/pay_succes_icon.png" mode="aspectFit"></image>
+    </view>
+    <view class='t_text zan-col zan-col-19' wx:if='{{info.status==1}}'>
+      <text class='fs32'>交易完成</text>
+      <text class='fs30'>实付金额:￥360</text>
+    </view>
+    <!--交易失败  -->
+    <view class='t_icon zan-col zan-col-3 zan-col-offset-1'>
+      <image src="../../../image/pay_fail_icon.png" mode="aspectFit" wx:if='{{info.status==2}}'></image>
+    </view>
+    <view class='t_text zan-col zan-col-19' wx:if='{{info.status==2}}'>
+      <text class='fs32'>交易失败</text>
+      <text class='fs30'>请返回会员卡详情页面重新购买</text>
+    </view>
+  </view>
+
+
+  <view class="zan-card card-bg total-bg-solid">
+    <view class="zan-card__thumb">
+      <image class="zan-card__img" src="../../../image/paytop_mid.png" mode="aspectFit"></image>
+    </view>
+    <view class="zan-card__detail fwb mt20">
+      <view class="zan-card__detail-row">
+        <view class="zan-card__right-col ">¥ {{info.goodsPrice}}</view>
+        <view class="zan-card__left-col zan-ellipsis--l2  fs30">
+          {{info.goodsName}}
+        </view>
+      </view>
+
+      <view class="zan-card__detail-row mt60 mb0 mt80">
+        <view class="zan-card__right-col">x{{info.number}}</view>
+        <view class="zan-card__left-col">
+          购买数量
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="zan-card__detail-row total-bg fs32 fwb">
+    <view class="zan-card__right-col cf5">¥ {{info.price}}</view>
+    <view class="zan-card__left-col">
+      合计
+    </view>
+  </view>
+
+   <view class="zan-card__detail-row total-bg fs32 fwb mt20">
+    <view class="zan-card__right-col ">1ngjf-1ngjf </view>
+    <view class="zan-card__left-col">
+      激活码
+    </view>
+  </view>
+  <navigator url="../../minor/mine_orderlist/mine_orderlist">
+    <view class='to_order'>查看我的订购</view>
+  </navigator>
+  <view class='to_tip'>进入 我的订购 可激活使用会员卡</view> 
+</view>
+<template is="zan-toast" data="{{ zanToast }}"></template>

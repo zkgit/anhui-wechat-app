@@ -1,0 +1,66 @@
+/* pages/minor/detail-db/detail-db.wxss */
+
+page {
+  padding-bottom: 98rpx;
+}
+
+.dialog-container {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  width: 640rpx;
+  height: 310rpx;
+  font-size: 16px;
+  overflow: hidden;
+  /* transition: all 0.2s linear; */
+  border-radius: 4px;
+  background-color: #fff;
+  transform: translate3d(-50%, -50%, 0);
+  color: #333;
+  z-index: 11;
+}
+
+.tab-bar {
+  display: inline-block;
+  margin: 0 10px;
+  height: 86rpx;
+  width: 86rpx;
+  background: #eee;
+  text-align: center;
+  line-height: 86rpx;
+}
+
+.dialog-container-arts {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  width: 640rpx;
+  height: 600rpx;
+  font-size: 16px;
+  overflow: hidden;
+  /* transition: all 0.2s linear; */
+  border-radius: 4px;
+  background-color: #fff;
+  transform: translate3d(-50%, -50%, 0);
+  color: #333;
+  z-index: 11;
+}
+
+.tab-bar-arts {
+  display: block;
+  margin: 10px;
+  padding-left: 5px;
+  height: 80rpx;
+  width: 93%;
+  background: #eee;
+  line-height: 80rpx;
+}
+
+.dialog-scroll-fade {
+  height: 460rpx;
+  overflow: hidden;
+}
+
+video {
+  width: 100%;
+}

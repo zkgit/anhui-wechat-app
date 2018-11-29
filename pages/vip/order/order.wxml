@@ -1,0 +1,43 @@
+<import src="../../../style/dist/toast/index.wxml" />
+<view class="" wx:if='{{order_hid}}'>
+  <view class="zan-card card-bg card-bg-sd">
+    <view class="zan-card__thumb">
+      <image class="zan-card__img" src="../../../image/paytop_mid.png" mode="aspectFit"></image>
+    </view>
+    <view class="zan-card__detail fwb">
+      <view class="zan-card__detail-row mt20">
+        <view class="zan-card__right-col ">¥ {{info.goodsPrice}}</view>
+        <view class="zan-card__left-col zan-ellipsis--l2  fs30">
+          {{info.goodsName}}
+        </view>
+      </view>
+      <!-- <view class="zan-card__detail-row zan-c-gray-darker">
+        <view class="zan-card__left-col">
+          会员卡
+        </view>
+      </view> -->
+      <view class="zan-card__detail-row mt80 mb0 ">
+        <view class="zan-card__right-col">x{{info.number}}</view>
+        <view class="zan-card__left-col">
+          购买数量
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="zan-card__detail-row total-bg  mt30 fs32 fwb">
+    <view class="zan-card__right-col cf5">¥ {{info.price}}</view>
+    <view class="zan-card__left-col">
+      合计
+    </view>
+  </view>
+
+
+  <view class='zan-row total-bm-bg fs32'>
+    <view class='zan-col zan-col-10 zan-col-offset-6 zan-c-gray-darker alir'>合计：
+      <text class='cf5 fwb'>¥ {{info.price}}</text>
+    </view>
+    <view class='zan-col zan-col-7 zan-col-offset-1 alic pay-btn' bindtap='orderAction'>提交订单</view>
+  </view>
+</view>
+<template is="zan-toast" data="{{ zanToast }}"></template>

@@ -1,0 +1,67 @@
+<!--pages/minor/mine_orderlist/mine_orderlist.wxml-->
+<import src="../../../style/dist/toast/index.wxml" />
+<import src="../../../style/dist/dialog/index.wxml" />
+<view class='page-content'>
+   <view class='none-list' wx:if='{{haveList}}'>您还没有添加订购商品</view> 
+  <scroll-view scroll-y style='height:100%' wx:if='{{!haveList}}'>
+    <view class='child-box' wx:for="{{listInfo}}" wx:key="{{item.keyId}}">
+      <view style='display:flex'>
+        <image class='item-img' src='../../../image/order_img.png'></image>
+        <view class='item-content'>
+          <view class='title1'>{{item.name}}</view>
+          <view class='title2'>激活码 {{item.boxKey}}</view>
+          <view class='title3'>使用期限 {{item.timeFrame}}天</view>
+        </view>
+        <view class='item-right-icon'>{{item.status==2?'已激活':'未激活'}}</view>
+      </view>   
+      <view class='item-bottom-box'>
+        <button class='item-bottom-child' bindtap='showActivationModal' data-status='{{item.status}}' data-id='{{item.keyId}}'>
+          <image class='small-img' src='../../../image/order_activate.png'></image>
+          <view class='small-text'>激活使用</view>
+        </button>
+        <view style='height:34rpx;border:0.5rpx solid rgb(240,240,240);margin-top:18rpx'></view>
+        <button class='item-bottom-child' open-type="share">
+          <image class='small-img' src='../../../image/order_share.png'></image>
+          <view class='small-text'>分享</view>
+       </button>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<!--选择激活设备弹窗  -->
+<view class="zan-dialog {{ zanActivateShow ? 'zan-dialog--show' : '' }}" wx:if='{{zanActivateShow}}'>
+    <view class="zan-dialog--mask"></view>
+    <view class="zan-dialog--container dialog-activate">
+      <view class="zan-dialog__header title">选择激活设备</view>
+      <scroll-view scroll-y style='height:200rpx;margin-top:31rpx'>
+        <view style='width:100%;margin-bottom:39rpx' wx:for='{{deviceList}}'>
+          <view data-index='{{index}}' data-id='{{item.id}}' class="zan-icon zan-icon-{{item.checked?'checked':'check'}}"  style="color:rgb(255,95,0);margin-left:60rpx;font-size:28rpx;" catchtap='checkItemFun'>      
+          <text style='color:rgb(34,34,34);'> {{item.boxId}}</text>
+          </view>
+        </view>
+        <view wx:if='{{showAddBtn}}' class='warn-text'>暂无可激活设备</view>
+        <view class="zan-icon zan-icon-add-o" bindtap='scan' style='width:80%;color:rgb(255,95,0);font-size:28rpx;margin-left:60rpx;' wx:if='{{showAddBtn}}'> 添加新设备</view>
+      </scroll-view> 
+      <!-- <view class="zan-icon zan-icon-add-o"  style="color:rgb(255,95,0);margin-left:60rpx;font-size:28rpx;" catchtap='showAddModal'>  添加新设备</view>    -->
+      
+      <view class='dialog-activate-bottombox'>
+       <button class='btn1' catchtap='activationUse'>激活使用</button>
+       <button class="btn2" catchtap="hideActivationModal" hover-class="btn-hover">取消</button>
+      </view>
+    </view> 
+</view> 
+
+<!--添加新设备弹窗  -->
+<view wx:if="{{showAddDialog}}">
+  <view class='add-dialog-model-mask' bindtap=''></view>
+  <view class='add-dialog-model' style='position:relative'>
+    <view class='add-dialog-title'>输入新的设备号</view>
+  <view class='add-dialog-content'>
+    <input placeholder='请输入您需要激活的设备号' placeholder-class='placeholder-style'></input>
+  </view>
+  <view class='add-dialog-buttom'>
+    <button class='btn1'>确认激活</button>
+    <button class="btn2" catchtap="hideAddModal">取消</button>
+  </view>
+  </view>
+</view>

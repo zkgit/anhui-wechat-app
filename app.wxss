@@ -1,0 +1,147 @@
+/**app.wxss,公共样式库，1rpx=设计图1px，默认rpx**/
+/*zanUI  */
+@import "style/dist/index.wxss";
+@import "style/detail.wxss";
+@import "common/template.wxss";
+
+/*！！！！添加样式请备注！！！！！*/
+page{display:flex;background-color:#fff;font-family:PingFangSC-Regular,-apple-system-font,'Helvetica Neue',Helvetica,'Microsoft YaHei',sans-serif;flex-direction:column}
+
+.container{display:flex;height:100%;flex-direction:column;justify-content:space-between}
+.c{color:#ff5f00}
+.cblue{color:#3f9bff}
+.c00{color:#000}
+.c33{color:#333}
+.c22{color:#222}
+.c66{color:#666}
+.c99{color:#999}
+.c89{color:#898989}
+.cff{color:#fff}
+.cf5{color:#ff5f00}
+.c7f{color:#7f7f7f}
+.bgf7{background:#f7f7f7}
+.bgcff{background:#fff}
+.fs18{font-size:18rpx}
+.fs20{font-size:20rpx}
+.fs22{font-size:22rpx}
+.fs24{font-size:24rpx}
+.fs26{font-size:26rpx}
+.fs28{font-size:28rpx}
+.fs30{font-size:30rpx}
+.fs32{font-size:32rpx}
+.fs34{font-size:34rpx}
+.fs40{font-size:40rpx}
+.fs50{font-size:50rpx}
+.fs60{font-size:60rpx}
+.fs100{font-size:100rpx}
+.fwb{font-weight:700}
+.pb10{padding-bottom:10rpx}
+.pb20{padding-bottom:20rpx}
+.pb40{padding-bottom:40rpx}
+.pt5{padding-top:5rpx}
+.pt10{padding-top:10rpx}
+.pt20{padding-top:20rpx}
+.pt35{padding-top:35rpx}
+.pt40{padding-top:40rpx}
+.pl10{padding-left:10rpx}
+.pl20{padding-left:20rpx}
+.pl40{padding-left:40rpx}
+.pr10{padding-right:10rpx}
+.pr20{padding-right:20rpx}
+.pr30{padding-right:30rpx}
+.pr40{padding-right:40rpx}
+.pr50{padding-right:50rpx}
+.pr60{padding-right:60rpx}
+.pr70{padding-right:70rpx}
+.pr80{padding-right:80rpx}
+.pr90{padding-right:90rpx}
+.mt10{margin-top:10rpx}
+.mt20{margin-top:20rpx}
+.mt30{margin-top:30rpx}
+.mt40{margin-top:40rpx}
+.mt50{margin-top:50rpx}
+.mt60{margin-top:60rpx}
+.mt70{margin-top:70rpx}
+.mt80{margin-top:80rpx}
+.mt90{margin-top:90rpx}
+.mt100{margin-top:100rpx}
+.mr10{margin-right:10rpx}
+.mr20{margin-right:20rpx}
+.ml10{margin-left:10rpx}
+.ml15{margin-left:15rpx}
+.ml20{margin-left:20rpx}
+.ml40{margin-left:40rpx}
+.mb0{margin-bottom:0rpx}
+.mb20{margin-bottom:20rpx}
+.dflex{display:flex}
+.dsib{display:inline-block}
+.alil{text-align:left}
+.alic{text-align:center}
+.alir{text-align:right}
+.h88{height:88rpx}
+.lh24{line-height:48rpx}
+.lh28{line-height:56rpx}
+.lh64{line-height:64rpx}
+.ptr{position:relative}
+.pta{position:absolute}
+.l0{left:0}
+.t0{top:0}
+.z1{ z-index: 1;}
+.z2{ z-index: 2;}
+.z3{ z-index: 3;}
+.z4{ z-index: 4;}
+.z5{ z-index: 5;}
+.z6{ z-index: 6;}
+.z7{ z-index: 7;}
+.z8{ z-index: 8;}
+.z9{ z-index: 9;}
+.z10{ z-index: 10;}
+.wp33{width:33%}
+.wp40{width:40%}
+.wp50{width:50%}
+.wp60{width:60%}
+.wp70{width:70%}
+.wp80{width:80%}
+.wp90{width:90%}
+.wp100{width:100%}
+.hp100{height:100%}
+.bdb{border-bottom:2rpx solid #e5e5e5}
+.r0{right:0}
+.r20{right:20rpx}
+.r100{right: 100rpx}
+.r110{right: 110rpx}
+.b0{bottom:0rpx}
+.ovh{overflow:hidden}
+.fl{float:left}
+.fr{float:right}
+.fixed{top:0;left:0;z-index:3;display:fixed}
+.bsz{box-sizing:border-box}
+.size-cover{padding:66% 0}
+.wsp{white-space:nowrap}
+.dflex{display:flex}
+.cf{clear:both;overflow:hidden}
+.ft10{font-size:10px}
+.tips{padding:50px;color:#ccc;text-align:center;font-weight:100;font-size:18px}
+.tips image{margin-right:10px;width:30px;height:30px}
+.tips image,.tips text{vertical-align:middle}
+.hide{display:none!important}
+.show{display:block}
+.ellipsis{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/*直播台标  */
+.tv_tb_part{position:absolute;bottom:0;width:100%;height:50rpx;background:#fff;font-size:26rpx;line-height:50rpx;opacity:.8}
+.tv_tb_part text{position:absolute;bottom:auto;overflow:hidden;margin-left:10rpx;width:170rpx!important;text-overflow:ellipsis;white-space:nowrap}
+.tv_tb_part image{margin-left:20rpx;width:50rpx!important;height:50rpx!important}
+.tv_tb_part .pre{position:absolute;bottom:0;width:100%;background:#ffefe5}
+
+/*加载  */
+._loading{width:100%;height:100rpx;border-top:1px solid #f0f0f0;color:#a4a4a4;text-align:center;font-size:26rpx;line-height:100rpx}
+
+/*搜索框*/
+.searchRank{position:relative;width:100%;height:116rpx;border-bottom:1px solid #E6EBF1}
+.searchRank .form{position:absolute;top:0;bottom:0;margin:auto;width:100%;height:58rpx;vertical-align:middle}
+.searchRank .form .cl{margin:0 auto;padding-left:65rpx;width:608rpx;height:58rpx;border:none;border-radius:20rpx;background:#f3f4f8;color:#8590a6;font-size:15px;line-height:58rpx}
+.searchRank icon{position:absolute;top:14rpx;left:59rpx}
+/* 按钮 */
+button{border-radius:0;background:0 0}
+button::after{border:none;background:0 0}

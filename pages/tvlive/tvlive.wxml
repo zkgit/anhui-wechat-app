@@ -1,0 +1,101 @@
+
+
+
+<!--点播html-->
+
+<!-- <import src="../../common/template.wxml"/>
+
+
+<template is="topbarscroll" data="{{section,currentId}}"/> -->
+<view class="searchRank">
+  <navigator url="../search/search">
+    <view class="form">
+      <view>
+        <icon type="search" size="15" color="#8891a7" catchtap="deleteTxt" />
+        <view class="cl">{{value}}</view>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<view class="stv-container">
+  <scroll-view class="tab-bar wp100" scroll-x>
+    <view wx:for="{{tabs}}" data-index="{{index}}" bindtap="tab_type" data-channel_en="{{item.channel_en}}" class="tab  {{type==item.channel_en?'tab-active':''}}">
+      {{item.channel_ch}}
+    </view>
+  </scroll-view>
+  <view class='dateBox dflex h88 wp100'>
+    <view wx:for="{{jmtime}}" bindtap='changeTime' data-date="{{item.data}}" class="alic {{activeDate==item.data?'c bgf7':''}}" style="width: {{100/jmtime.length}}%">
+      <view class='fs26 lh28'>{{!item.class?item.day:'今天'}}</view>
+      <view class='fs18'>{{item.timestr}}</view>
+    </view>
+  </view>
+
+  <view class="scroll-view bgf7">
+    <scroll-view scroll-y class='leftbar alic bgcff'>
+      <view wx:for="{{leftbar}}" bindtap='changeleft' data-channel-id='{{item.channelId}}' data-index='{{index}}' class='leftbar_item  {{leftbarIndex==index?"bgf7":""}}'>
+        <image src='{{item.icon2}}' mode='widthFix'></image>
+        <view class='fs28 ellipsis'>{{item.channelName}}</view>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y class='rightEpg bgcff pt20' scroll-top='{{scrolltop}}' scroll-into-view='el-{{toView}}'>
+
+    <!--区分直播回看和直播  -->
+    <!--回看  -->
+      <navigator id='el-{{index}}' url="../minor/detail-zb-hk/detail-zb-hk?channelId={{item.channelId}}&data={{activeDate}}&index={{index}}&flag={{item.flag}}" wx:for="{{list}}" hidden='{{isshow_default}}' class='item ptr' wx:if="{{item.flag==0}}">
+        <image class='dot' src="../../image/dot.png"></image>
+        <text class="time pta fs26 c33">{{item.startTime}}</text>
+        <view class='dt'>
+          <view class='fs32 c00 pb10 ellipsis'>{{item.title}}</view>
+          <view class="fs24 c99 ellipsis ">{{item.flag==0?'已结束':item.startTime+'播出'}}</view>
+          <view class='bgf7' style='width:300rpx;height:6rpx;'>
+            <view class='hp100 mt40' style='width:{{item.percentage}}%;background:#ff5f00;'></view>
+             <!-- <view class='btn pta alic'>
+              <image src="../../image/tv{{item.flag}}.png"></image>
+              <view class='fs20 c22'>{{arr[item.flag]}}</view>
+            </view>  -->
+          </view>
+        </view>
+      </navigator>
+      <!--直播  -->
+       <navigator id='el-{{index}}' url="../minor/detail-zb/detail-zb?channelId={{item.channelId}}" wx:for="{{list}}" hidden='{{isshow_default}}' class='item ptr' wx:if="{{item.flag==1}}">
+        <image class='dot' src="../../image/{{item.flag==1?'dot_current':'dot'}}.png"></image>
+        <text class="time pta fs26 {{item.flag==1?'cf5':'c33'}}">{{item.startTime}}</text>
+        <view class='dt'>
+          <view class='fs32 c00 pb10 ellipsis'>{{item.title}}</view>
+          <view class="fs24 {{item.flag==1?'cf5':'c99'}} ellipsis {{item.flag==1?'c':''}}">{{item.flag==1?'正在直播':item.startTime+'播出'}}</view>
+          <view class='bgf7' style='width:300rpx;height:6rpx;'>
+            <view class='hp100 mt40' style='width:{{item.percentage}}%;background:#ff5f00;'></view>
+             <!-- <view class='btn pta alic'>
+              <image src="../../image/tv{{item.flag}}.png"></image>
+              <view class='fs20 c22'>{{arr[item.flag]}}</view>
+            </view>  -->
+          </view>
+        </view>
+      </navigator>
+      <!--即将播放  -->
+       <navigator id='el-{{index}}' url="../minor/detail-zb-hk/detail-zb-hk?channelId={{item.channelId}}&data={{activeDate}}&index={{index}}&flag={{item.flag}}" wx:for="{{list}}" hidden='{{isshow_default}}' class='item ptr' wx:if="{{item.flag==2}}">
+        <image class='dot' src="../../image/{{item.flag==1?'dot_current':'dot'}}.png"></image>
+        <text class="time pta fs26 {{item.flag==1?'cf5':'c33'}}">{{item.startTime}}</text>
+        <view class='dt'>
+          <view class='fs32 c00 pb10 ellipsis'>{{item.title}}</view>
+          <view class="fs24 {{item.flag==1?'cf5':'c99'}} ellipsis {{item.flag==1?'c':''}}">{{item.flag==1?'正在直播':item.startTime+'播出'}}</view>
+          <view class='bgf7' style='width:300rpx;height:6rpx;'>
+            <view class='hp100 mt40' style='width:{{item.percentage}}%;background:#ff5f00;'></view>
+             <!-- <view class='btn pta alic'>
+              <image src="../../image/tv{{item.flag}}.png"></image>
+              <view class='fs20 c22'>{{arr[item.flag]}}</view>
+            </view>  -->
+          </view>
+        </view>
+      </navigator>
+      <!--end  -->
+
+      <view hidden='{{!isshow_default}}' class='alic c99 fs28'>
+        <image src='../../image/tvlive_default.png' mode='widthFix' class='pb40' style='width:35%;padding-top:156rpx;'></image>
+        <view>当前节目单暂无数据</view>
+        <view>快去寻找其他精彩直播吧</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

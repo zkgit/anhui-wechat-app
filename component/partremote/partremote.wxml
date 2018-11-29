@@ -1,0 +1,67 @@
+<!--common/partremote/partremote.wxml-->
+<view class="fly_remote {{_trs?'rm_touched':''}} {{_trmo?'_opc1':''}}" style="top:{{barTop?barTop:_deciceH -_wid_pro-_bottom_pro-120}}px;left:{{barLeft?barLeft:_deciceW-_wid_pro-_left_pro}}px" catchtap='handelClick' bindtouchstart='touchStartEvent' catchtouchmove='touchMoveEvent'
+  catchtouchend='touchEndEvent'>
+  <image src='../../image/showrt.png' mode='widthFix' style='width:{{_wid_pro}}px'></image>
+  <!-- <view class="{{_trmo?'movesonar':''}}" style='height:55px;width:55px;position: absolute;top:0'>
+  </view> -->
+</view>
+
+<view wx:if="{{showRomoteStatus}}">
+  <view class='remote-model-parent' bindtap='handelClick'></view>
+  <!--浮动遥控器  -->
+  <view class='remote-model'>
+    <view class='remote-model-top'>
+      <view class='top-child-el' data-keycode='448' bindtouchstart="sent">
+        <view class="top-icon-img top11"></view>
+      </view>
+      <image class='remote-vertical-line' src='{{verticalLine}}'></image>
+      <view class='top-child-el' data-keycode='468' bindtouchstart="sent">
+        <view class="top-icon-img top22"></view>
+      </view>
+      <image class='remote-vertical-line' src='{{verticalLine}}'></image>
+      <view class='top-child-el' data-keycode='447' bindtouchstart="sent">
+        <view class="top-icon-img top33"></view>
+      </view>
+    </view>
+    <image class='remote-horizon-line' src='{{horisonLine}}'></image>
+    <view class='remote-model-content'>
+      <view class='remote-model-content-box'>
+        <!--上  -->
+        <view class='content-child-el content-child-top' bindtouchstart="sent" data-keycode='38'>
+          <view class="icon-img icon-img-top"></view>
+        </view>
+        <!--右  -->
+        <view class='content-child-el content-child-right' bindtouchstart="sent" data-keycode='39'>
+          <view class="icon-img icon-img-right"></view>
+        </view>
+        <!--左  -->
+        <view class='content-child-el content-child-left' bindtouchstart="sent" data-keycode='37'>
+          <view class="icon-img icon-img-left"></view>
+        </view>
+        <!--下  -->
+        <view class='content-child-el content-child-bottom' bindtouchstart="sent" data-keycode='40'>
+          <view class="icon-img icon-img-bottom"></view>
+        </view>
+      </view>
+      <view class='remote-model-content-isok' data-keycode='13' bindtouchstart="sent">
+        <view class="cont-ok11 icom-isok"></view>
+      </view>
+    </view>
+    <image class='remote-horizon-line' src='{{horisonLine}}'></image>
+    <view class='remote-model-foot'>
+      <view class='foot-child-el' data-keycode='36' bindtouchstart="sent">
+        <view class="foot11 foot-icon-img"></view>
+      </view>
+      <image class='remote-vertical-line' src='{{verticalLine}}'></image>
+      <view class='foot-child-el'>
+        <navigator url="/pages/remote/remote" open-type="switchTab">
+          <view class="foot22 foot-icon-img "></view>
+        </navigator>
+      </view>
+      <image class='remote-vertical-line' src='{{verticalLine}}'></image>
+      <view class='foot-child-el' data-keycode='640' bindtouchstart="sent">
+        <view class="foot33 foot-icon-img"></view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,171 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.3",
+	"appid": "wx73253734d9c62b0c",
+	"projectname": "%E7%9C%8B%E5%AE%A2%E4%BA%92%E5%8A%A8-%E7%BA%BF%E4%B8%8A%E7%89%88%E6%9C%AC",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "点播",
+					"pathName": "pages/indexdb/indexdb",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "二级播放页面",
+					"pathName": "pages/minor/list/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mine/mine",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "二级更多",
+					"pathName": "pages/minor/zblist/zblist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "点播详情",
+					"pathName": "pages/minor/detail-db/detail-db",
+					"query": "id=67787&columnType=film"
+				},
+				{
+					"id": -1,
+					"name": "我的收藏",
+					"pathName": "pages/minor/mine_collect/mine_collect",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的消费密码",
+					"pathName": "pages/minor/mine_password/mine_password",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的设备",
+					"pathName": "pages/minor/mine_device/mine_device",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "电视剧详情",
+					"pathName": "pages/minor/detail-db/detail-db",
+					"query": "id=175556&columnType=tv"
+				},
+				{
+					"id": -1,
+					"name": "遥控器",
+					"pathName": "pages/remote/remote",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "遥控器",
+					"pathName": "pages/remote/remote",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "直播详情",
+					"pathName": "pages/minor/detail-zb/detail-zb",
+					"query": "channelId=chancp000011a9320253000002939369&share=true"
+				},
+				{
+					"id": 12,
+					"name": "综艺详情",
+					"pathName": "pages/minor/detail-db/detail-db",
+					"query": "id=71322&columnType=arts"
+				},
+				{
+					"id": -1,
+					"name": "我的预约",
+					"pathName": "pages/minor/mine_order/mine_order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的历史",
+					"pathName": "pages/minor/mine_history/mine_history",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "绑定",
+					"pathName": "pages/minor/mine_device/mine_device",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "直播",
+					"pathName": "pages/tvlive/tvlive",
+					"query": ""
+				},
+				{
+					"id": 18,
+					"name": "战狼点播",
+					"pathName": "pages/minor/detail-db/detail-db",
+					"query": "id=146711&columnType=film",
+					"scene": "1001"
+				},
+				{
+					"id": 19,
+					"name": "提交订单",
+					"pathName": "pages/vip/order/order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/vip/order_status/order_status",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "二维码",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": "1011"
+				}
+			]
+		}
+	}
+}

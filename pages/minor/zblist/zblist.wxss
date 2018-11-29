@@ -1,0 +1,4 @@
+/* pages/minor/list/list.wxss */
+page{
+  padding-top:2rpx;
+}

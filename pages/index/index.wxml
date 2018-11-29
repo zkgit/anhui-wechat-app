@@ -1,0 +1,58 @@
+<import src="../../common/template.wxml" />
+
+<!-- <template is="loadings" data="{{loading,loadtxt}}" />  -->
+<!--搜索框-->
+<view>
+  <view class="searchRank">
+    <navigator url="../search/search">
+      <view class="form">
+        <view>
+          <icon type="search" size="15" color="#8891a7" catchtap="deleteTxt" />
+          <view class="cl">{{value}}</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+
+
+  <!--海报轮播-->
+  <view class="banner-scroll">
+    <swiper indicator-dots="true" indicator-color='' indicator-active-color class="Bannerswiper" autoplay="true">
+      <block wx:for="{{banners}}" wx:key="picUrl">
+        <swiper-item>
+          <view class="swiper-item">
+            <navigator url="{{item.url}}">
+              <view class="pic">
+                <image src="{{item.picUrl}}" mode="aspectFill" class="slide-image" />
+              </view>
+              <!-- <view class="title">
+                <text>{{item.name}}</text>
+              </view> -->
+            </navigator>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- <partremote _wid_pro='55' _left_pro='' _top_pro='' _bottom_pro=''></partremote> -->
+
+  <!--浮动遥控器， _wid_pro遥控器大小，_left_pro遥控器距离右侧间距，_top_pro/_bottom_pro顶部和底部间距 -->
+  <partremote _wid_pro='55' _left_pro='10' _top_pro='10' _bottom_pro='10'></partremote>
+
+  <!--列表页-->
+  <!--热播排行-->
+  <template is="listtitle" data="{{url:'../minor/zblist/zblist?tag=正在热播',_title:'正在热播'}}" />
+  <template is="listSmall" data="{{_list:hotLive}}" />
+
+  <!--热播排行-->
+  <template is="listtitle" data="{{url:'../minor/hotlist/hotlist?tag=热播排行',_title:'热播排行'}}" />
+  <template is="listSmall" data="{{_list:hotVideo}}" />
+
+  <!-- 最新上线 -->
+  <!-- <template is="listtitle" data="{{url:'../minor/newlist/newlist?tag=最新上线',_title:'最新上线'}}" />
+  <template is="listSmall" data="{{_list:videoReserve}}" /> -->
+  <!-- 猜你喜欢 -->
+  <template is="listtitle" data="{{_title:'猜你喜欢',_plan:'true'}}" />
+  <template is="listSmall" data="{{_list:allMyVideo}}" />
+</view>

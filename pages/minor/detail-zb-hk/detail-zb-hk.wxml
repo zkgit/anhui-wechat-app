@@ -1,0 +1,284 @@
+<import src="../../../style/dist/toast/index.wxml" />
+<import src="../../../style/dist/dialog/index.wxml" />
+
+
+<view class='detail detail_zb'>
+  <view class='detail_info pt40 pl20 pr20 pb20 bdb ovh'>
+    <view class='info_left wp40 mr20 fl'>
+      <image src="{{detail.image?detail.image:'../../../image/mx_image.png'}}" binderror='imgerror' class="wp100" mode='widthFix'></image>
+    </view>
+    <view class='info_right'>
+      <view class='fs34 c00'>{{detail.title?detail.title:activejson.title}}</view>
+      <view class='tag pt10 pb10 cff'>
+        <text class='dsib mr10 fs26' wx:for="{{detail.tags}}">{{item}}</text>
+      </view>
+      <view class='ellipsis fs26 c89'>
+        <text class='fs28 c22'>年份：</text>{{detail.year?detail.year:''}}</view>
+      <view class='des fs24 c89 lh24 ptr'>
+        <text class='fs28 c22'>简介：</text>{{is_shortdes?detail.shortdes:detail.description}}
+        <text class='{{is_shortdes?"":"pta r20 b0"}} c' bindtap='changedes' wx:if="{{detail.shortdes}}">{{is_shortdes?'展开':'收起'}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='detail_tools bdb c33 alic'>
+    <!-- <view class='li wp50 fl ptr {{is_collect?"c":""}}' >
+          <image src='{{is_collect?"../../../image/collect_press.png":"../../../image/collect.png"}}' mode="	aspectFit"></image>
+          <text class='fs26'>{{is_collect?'已收藏':'收藏'}}</text>
+       </view> -->
+    <view class='li ptr wp100 fl {{is_share?"c":""}}'>
+      <button open-type="share">
+        <image src='{{is_share?"../../../image/share_press.png":"../../../image/share.png"}}' mode="	aspectFit"></image>
+        <text class='fs26'>{{is_share?'已分享':'分享'}}</text>
+      </button>
+    </view>
+  </view>
+  <view class='pt40 pl10 pr10 ovh actorlist' wx:if='{{actorlist}}'>
+    <view class="c22 fs34">演职员</view>
+    <scroll-view scroll-x style='height:160rpx;white-space:nowrap;'>
+      <navigator url="../star/star?name={{item.actorName}}&starId={{item.starId}}&columnType={{options.columnType}}" wx:for='{{actorlist}}' class='actor alic ptr' open-type='redirect'>
+        <image src='{{item.imageSmall?item.imageSmall:"../../../image/mxdefault.png"}}' data-error='' binderror=''></image>
+        <image class='director pta' src='../../../image/director.png' wx:if="{{(item.status==1)&&(options.columnType!='arts')}}"></image>
+        <view class='fs26 c22 ellipsis wp100'>{{item.actorName}}</view>
+      </navigator>
+    </scroll-view>
+  </view>
+  <view class='zb_epg pl10 pt10 pr10'>
+    <view class='top'>
+      <image src='{{icon}}' class='fl mr10'></image>
+      <text class='fl fs34 c22'>{{title}}</text>
+      <view class='fr right' bindtap='collect'>
+        <image src='{{mystate.is_zbcollect?"../../../image/collect_press.png":"../../../image/collect.png"}}' class='mr10'></image>
+        <text class='fs26 {{mystate.is_zbcollect?"c":""}}'>{{mystate.is_zbcollect?'已收藏频道':'收藏频道'}}</text>
+      </view>
+    </view>
+    <view class='jmtime wp100 ovh lh28 fs26 c22 pb40'>
+      <view class="item alic fl  {{item.data==activeDate?'cblue':''}}" wx:for='{{jmtime}}' data-time="{{item.data}}" bindtap='changeday'>{{item.day}}</view>
+    </view>
+    <scroll-view scroll-y scroll-top="{{scrolltop}}" style='height:640rpx;' class='jmlist fs30' scroll-into-view='el-{{toView}}'>
+      <view id='el-{{index}}' wx:for='{{jmlist}}' class='ptr item ovh wp100 bg {{index==options.index&&activeDate==options.data?"live":""}}'>
+        <!-- <view class='pta l0 t0 wp100 hp100 z1 ' ></view> -->
+         <!--区分直播回看和直播  -->
+        <!--回看  -->
+        <navigator url="../detail-zb-hk/detail-zb-hk?channelId={{item.channelId}}&data={{activeDate}}&index={{index}}&flag={{item.flag}}"  wx:if="{{item.flag==0}}">
+          <view class='pta t0 l0 z2 jm_l  ellipsis'>{{item.startTime}}  {{item.title}}</view>
+        </navigator>
+        <!--直播  -->
+        <navigator url="../detail-zb/detail-zb?channelId={{item.channelId}}"  wx:if="{{item.flag==1}}">
+          <view class='pta t0 l0 z2 jm_l  ellipsis'>{{item.startTime}}  {{item.title}}</view>
+        </navigator>
+        <!--即将播放  -->
+        <navigator url="../detail-zb-hk/detail-zb-hk?channelId={{item.channelId}}&data={{activeDate}}&index={{index}}&flag={{item.flag}}"  wx:if="{{item.flag==2}}">
+          <view class='pta t0 l0 z2 jm_l  ellipsis'>{{item.startTime}}  {{item.title}}</view>
+        </navigator>
+        <!--end结束  -->
+        <image class='pta order' wx:if='{{item.flag==2}}' src="{{item.isorder?'../../../image/zb_order_press.png':'../../../image/zb_order.png'}}" data-eq='{{index}}' data-item='{{item}}' bindtap='ordertv'></image>
+        <!-- <image class="pta play" wx:if='{{item.flag==0||item.flag==1}}' src='../../../image/zb_play.png'  data-type='{{item.flag==1?"live":"back"}}'></image> -->
+      </view>
+    </scroll-view>
+
+  </view>
+
+  <view class='recomment pt20 pl10 pr10 '>
+    <view class='fs34 c22 pl10 pr10'>相关推荐</view>
+    <view class="recomlist pt20 wp100">
+      <navigator url="../../minor/detail-db/detail-db?id={{item.id}}&columnType={{item.videoType}}" open-type='redirect' class='item' wx:for="{{tjlist}}">
+        <view class="boxPic ptr wp100">
+          <image src="{{item.image}}" class='pta' />
+        </view>
+        <view class="boxTitle1 ellipsis pl40 fs28 c22">
+          <text>{{item.title}}</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+ <view class='comment pt20 pl20 pr20'>
+    <view class='top pb20'>
+      <view class='fs34 c22 fl'>评论</view>
+      <view class='fr fs22 c89'>共{{comment.length}}条</view>
+    </view>
+    <view class='zan-row mb20'>
+      <view class="zan-col zan-col-3 icon-setting  c22 mt10" data-type='cdm' bindtap='toggleBottomPopup'>
+        <image src='../../../image/dm_color.png'  style='width:50rpx' mode="widthFix"></image>
+      </view>
+      <view class="zan-col zan-col-2  fs24 cff mt10" data-type='tvdm' bindtap='toggleBottomPopup'>
+        <image src='../../../image/dm_set.png'  style='width:45rpx' mode="widthFix"></image>
+      </view>
+      <view class="zan-col zan-col-15 input">
+        <input placeholder='{{placeholder?placeholder:"我也说句话"}}' value='{{inputVal}}' bindblur='blurfocus' focus='{{focus}}' placeholder-style='color:#898989;font-size:24rpx;' bindinput='keyinput' class='fs28 c33 pl20'></input>
+      </view>
+      <view class="zan-col zan-col-1 alic  zan-col-offset-1 send fs24 cff" bindtap='sendcomment'>发送</view> 
+      <!-- <view class='cff alic send  fs24 pta r100 t0' >发送</view>
+      <view class='cff alic send fs24 pta r0 t0' >弹幕设置</view> -->
+    </view>
+    <!-- <view class='input pt10 ptr'> -->
+    <!-- <image src='{{avatarUrl}}' class='mr10'></image> -->
+
+
+    <!-- </view> -->
+    <view class='comul'>
+      <view class='comli ptr' wx:for='{{comment}}'>
+        <view class='litop'>
+          <image class='pta l0 t0 userimg' src="{{item.headImgurl}}"></image>
+          <view class='wp100'>
+            <view class='cblue fs28 ellipsis'>{{item.nickname}}</view>
+            <view class='c89 fs24'>{{item.addTime}}</view>
+          </view>
+          <view class='fs24 c89 comuser pta r0 t0'>
+            <view class='fr ml40' bindtap='changeInput' data-nickname='{{item.nickname}}' data-id='{{item.id}}'>
+              <image src='../../../image/comment.png' class='fl'></image>
+              <text>{{item.page.totalrecords}}</text>
+            </view>
+            <view class='fr' bindtap='like' data-id='{{item.id}}' data-status='{{item.status}}'>
+              <image src='{{item.status?"../../../image/zan_press.png":"../../../image/zan.png"}}' class='fl'></image>
+              <text>{{item.count}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='comtext fs28 c22 pt20'>{{item.context}}</view>
+        <view class='twocominfo fs28 ptr' hidden='{{!item.page.totalrecords}}'>
+          <view class='jiao pta'></view>
+          <view wx:for='{{item.page.list}}' wx:for-item="j" wx:if="{{item.showreply?1:index<2}}">
+            <text class='cblue'>{{j.nickname}}:</text>
+            <text class='c22'>{{j.context}}</text>
+          </view>
+          <view class='fs24 c89' bindtap='getreply' data-eq='{{index}}' data-id="{{item.id}}" data-total='{{item.page.totalrecords}}' hidden='{{item.page.totalrecords<=2}}'>查看全部{{item.page.totalrecords}}条回复</view>
+        </view>
+
+      </view>
+      <view class='fs28 nomore alic'>- 没有更多评论 -</view>
+    </view>
+  </view>
+
+  <!--弹幕弹窗 -->
+  <view class="popup-example--bottom zan-popup zan-popup--bottom {{ showBottomPopup ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask" catchtap="toggleBottomPopup"></view>
+    <!--弹幕设置  -->
+    <view class="zan-popup__container" wx:if="{{dm=='tvdm'}}">
+      <view class='zan-row mt20 mb20'>
+        <view class="zan-col zan-col-24  fs30 alic">
+          电视弹幕设置
+        </view>
+      </view>
+      <view class="section section_gap ">
+        <view class='zan-row'>
+          <view class="zan-col zan-col-10 zan-col-offset-1">
+            <text class="fs30">不透明度</text>
+          </view>
+        </view>
+        <view class="body-view">
+          <!--不透明度  -->
+          <slider bindchange="sliderChange" data-sid='1' activeColor='#ff5f00' min="0" max="255" value='80' show-value/>
+        </view>
+      </view>
+
+      <view class="section section_gap">
+        <view class='zan-row'>
+          <view class="zan-col zan-col-10 zan-col-offset-1">
+            <text class="fs30">字号</text>
+          </view>
+        </view>
+        <view class="body-view">
+          <!--字号  -->
+          <slider bindchange="sliderChange" data-sid='2' activeColor='#ff5f00' min="2" max="6" value='2'  show-value/>
+        </view>
+      </view>
+      <view class="section section_gap mt20">
+        <view class='zan-row'>
+          <view class="zan-col zan-col-10 zan-col-offset-1">
+            <text class="fs30">速度</text>
+          </view>
+        </view>
+        <view class="body-view">
+          <!--速度  -->
+          <slider bindchange="sliderChange" data-sid='3' activeColor='#ff5f00' min="5" max="15" value='10' show-value/>
+        </view>
+      </view>
+      <view class="section section_gap mt20">
+        <view class='zan-row'>
+          <view class="zan-col zan-col-10 zan-col-offset-1">
+            <text class="fs30">显示行数</text>
+          </view>
+        </view>
+        <view class="body-view">
+          <!--行数  -->
+          <slider bindchange="sliderChange" data-sid='4' activeColor='#ff5f00' min="1" max="8" value='4'  show-value/>
+        </view>
+      </view>
+      <view class='zan-row mb20'>
+        <view class="zan-col zan-col-15 zan-col-offset-1 fs30 lh64">
+          开启/关闭弹幕
+        </view>
+        <view class="zan-col zan-col-4 zan-col-offset-4">
+          <switch checked bindchange="sliderChange" data-sid='5' color='#ff5f00' />
+        </view>
+      </view>
+
+      <view class="zan-btns">
+        <button class="zan-btn" catchtap="toggleBottomPopup">
+          关闭
+        </button>
+      </view>
+    </view>
+    <!--发送弹幕颜色设置  -->
+    <view class="zan-popup__container" wx:if="{{dm=='cdm'}}">
+      <view class='zan-row mt20 mb20'>
+        <view class="zan-col zan-col-24  fs30 alic">
+          发送弹幕颜色设置
+        </view>
+      </view>
+      <scroll-view class='color-box' scroll-x >
+      <!-- 赤橙黄绿青蓝紫，颜色选择，选中有焦点 -->
+        <view  wx:for="{{colorList}}" data-text="{{item.color}}" data-index="{{item.index}}" class='select-color {{item.index == currentSelect?"checkedColor":""}}' style="background-color:{{item.color}}" bindtap="checkPopupColor"></view>     
+      </scroll-view>
+      <view class="zan-btns">
+        <button class="zan-btn" catchtap="toggleBottomPopup">
+          关闭
+        </button>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="zan-popup {{ showPopup ? 'zan-popup--show' : ''}}">
+    <!-- 遮罩层，有需要可以在遮罩层上增加点击事件 -->
+    <view class="zan-popup__mask" bindtap="togglePopup"></view>
+    <!-- 弹出层的内容放在此元素内 -->
+    <view class="dialog-container" wx:if='{{tvDrama}}'>
+      <view class='zan-row '>
+        <view class="zan-col zan-col-4 zan-col-offset-2 fs30 pt20">剧集</view>
+        <view class="zan-col zan-col-10 zan-col-offset-8 fs30 pt20">更新至：{{dmtotalrecords}}集</view>
+      </view>
+      <view class='mt40'>
+        <scroll-view class=" wp100 wsp pt20 fs30" scroll-x>
+          <view class='tab-bar' wx:for="{{fadedmt}}" bindtap='goplay' data-index='{{index}}'> {{item.volumnCount}}</view>
+        </scroll-view>
+      </view>
+    </view>
+    <!--综艺、纪录片剧集  -->
+    <view class="dialog-container-arts" wx:if='{{!tvDrama}}'>
+      <view class='zan-row '>
+        <view class="zan-col zan-col-4 zan-col-offset-2 fs30 pt20">剧集</view>
+        <view class="zan-col zan-col-10 zan-col-offset-8 fs30 pt20">更新至：{{dmtotalrecords}}集</view>
+      </view>
+      <view class='mt40'>
+        <scroll-view class=" wp100 pt20 fs30 dialog-scroll-fade" scroll-y>
+          <view class='tab-bar-arts ellipsis ' wx:for="{{fadedmt}}" bindtap='goplay' data-index='{{index}}'> {{item.name}}</view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+
+  <view class='tvplay cff fs30 ' bindtap='playtv' wx:if="{{options.flag==0}}">电视观看</view>
+  <template is="zan-toast" data="{{ zanToast }}"></template>
+  <navigator url="/pages/index/index" open-type="switchTab" wx:if='{{backhome}}'>
+    <view class='btn_backhome'>
+      <view class='zan-icon zan-icon-points-mall fs40 pt5'></view>
+      <view class='fs20'>首页</view>
+    </view>
+  </navigator>
+</view>
+<template is="zan-dialog" data="{{ zanDialog }}"></template>
+
+<!--遥控器  -->
+ <partremote _wid_pro='55' _left_pro='10' _top_pro='10' _bottom_pro='10'></partremote>

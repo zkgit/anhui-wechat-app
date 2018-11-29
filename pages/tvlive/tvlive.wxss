@@ -1,0 +1,162 @@
+/* @import "../../common/template.wxss"  */
+
+/*滑动效果*/
+
+.stv-container {
+  position: fixed;
+  top: 116rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.withAnimate {
+  transition: all 100ms ease;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+}
+
+.stv-container .tab-bar {
+  position: relative;
+  font-size: 32rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  white-space: nowrap;
+}
+
+.stv-container .tab-bar .tab {
+  align-items: center;
+  justify-content: center;
+  height: 78rpx;
+  display: inline-block;
+  border-bottom: 4rpx solid transparent;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.stv-container .tab-bar .tab-active {
+  color: #ff5f00;
+  border-bottom: 4rpx solid #ff5f00;
+}
+
+.stv-container .dateBox {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.stv-container .scroll-view {
+  position: relative;
+  width: 100%;
+  position: fixed;
+  top: 289rpx;
+  left: 0;
+  bottom: 0;
+}
+
+.stv-container .leftbar {
+  width: 180rpx;
+  position: fixed;
+  top: 289rpx;
+  left: 0;
+  bottom: 0;
+}
+
+.stv-container .leftbar_item {
+  padding: 8rpx 0;
+  border-bottom: 4rpx solid #f7f7f7;
+}
+
+.stv-container .leftbar_item image {
+  width: 70rpx;
+}
+
+.stv-container .rightEpg {
+  position: fixed;
+  top: 289rpx;
+  left: 200rpx;
+  bottom: 0;
+  right: 0;
+  width: auto;
+}
+
+.stv-container .rightEpg .item {
+  height: 200rpx;
+}
+
+.stv-container .rightEpg .item:before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 40rpx;
+  bottom: 0;
+  left: 40rpx;
+  border-right: 2rpx solid #666;
+}
+
+.stv-container .rightEpg .item .dot {
+  position: absolute;
+  top: 5rpx;
+  bottom: 0;
+  left: 26rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.stv-container .rightEpg .item .time {
+  left: 76rpx;
+  top: 5rpx;
+}
+
+.stv-container .rightEpg .item .dt {
+  margin-left: 156rpx;
+  padding-top: 40rpx;
+}
+
+.stv-container .rightEpg .item .btn {
+  right: 20rpx;
+  bottom: 30rpx;
+  width: 60rpx;
+  height: 100rpx;
+}
+
+.stv-container .rightEpg .item .btn image {
+  width: 29rpx;
+  height: 30rpx;
+}
+
+.stv-container .scroll-view .scroll-view-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+}
+
+.stv-container .scroll-view .scroll-view-wrapper .one-scene {
+}
+
+.stv-container .scroll-view .scroll-view-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+}
+
+.stv-container .scroll-view .scroll-view-wrapper .one-scene {
+  height: 100%;
+}
+
+.one-scene text {
+  display: flex;
+  justify-content: center;
+  padding-top: 200rpx;
+}

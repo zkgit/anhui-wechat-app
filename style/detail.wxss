@@ -1,0 +1,254 @@
+.tag text {
+  background: #bcbcbc;
+  line-height: 44rpx;
+  padding: 0 10rpx;
+}
+
+.detail_tools {
+  height: 88rpx;
+  line-height: 86rpx;
+}
+
+.detail_tools .li image {
+  height: 22rpx;
+  width: 25rpx;
+  margin-right: 10rpx;
+}
+
+.detail_tools .li:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 30rpx;
+  height: 26rpx;
+  width: 2rpx;
+  background: #e5e5e5;
+}
+
+.detail_tools .li:last-child:after {
+  background: transparent;
+}
+
+.actorlist .actor {
+  margin: 16rpx;
+  width: 100rpx;
+  display: inline-block;
+}
+
+.actorlist .actor image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.actorlist .actor .director {
+  height: 25rpx;
+  width: 63rpx;
+  top: 75rpx;
+  right: 0;
+  border-radius: 0;
+}
+
+.detail .recomlist {
+  display: flex;
+  justify-content: initial;
+  flex-wrap: wrap;
+}
+
+.detail .recomlist .item {
+  width: 33.3333%;
+  padding: 0 2rpx;
+  box-sizing: border-box;
+}
+
+.detail .recomlist .item .boxPic {
+  padding: 66.6666% 0;
+}
+
+.detail .recomlist .item .boxPic image {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.detail .recomlist .item .boxTitle1 {
+  height: 75rpx;
+  line-height: 65rpx;
+}
+
+/*推送按钮  */
+
+.tvplay {
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background: #ff5e00;
+  z-index: 10;
+}
+
+.dbtvplay {
+  width: 50%;
+  height: 98rpx;
+  line-height: 98rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background: #ff5e00;
+  z-index: 10;
+}
+
+.dbmbplay {
+  width: 50%;
+  height: 98rpx;
+  line-height: 98rpx;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  background: #00b4ff;
+  z-index: 10;
+}
+
+.btn_backhome {
+  position: fixed;
+  background: #fff;
+  color: #ff5f00;
+  opacity: 0.9;
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+  bottom: 140rpx;
+  right: 40rpx;
+  text-align: center;
+  box-shadow: 0px 0px 20px 0px rgba(90, 87, 87, 0.7);
+}
+
+/*评论*/
+
+.comment .top {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.comment .input {
+  /* padding: 0 95rpx 35rpx 70rpx; */
+  height: 70rpx;
+}
+
+.comment .input image {
+  width: 70rpx;
+  height: 70rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 35rpx;
+}
+
+.comment .comli {
+  padding-bottom: 55rpx;
+}
+
+.comment .input input {
+  background: #f0f0f0;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  /* margin-top: -5rpx; */
+}
+
+.comment .comli .litop {
+  height: 70rpx;
+  padding-left: 80rpx;
+  line-height: 35rpx;
+  padding-right: 195rpx;
+}
+
+.comment .comli .litop .comuser {
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.comment .comli .litop .userimg {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+}
+
+.comment .comli .comtext {
+  padding-left: 80rpx;
+}
+
+.comment .comuser image {
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 10rpx;
+}
+
+.comment .twocominfo {
+  padding: 10rpx 10rpx 10rpx 10rpx;
+  margin-left: 70rpx;
+  margin-top: 50rpx;
+  background: #f6f6f6;
+  line-height: 46rpx;
+}
+
+.comment .twocominfo .jiao {
+  width: 0;
+  height: 0;
+  border-bottom: 25rpx solid #f6f6f6;
+  border-right: 35rpx solid transparent;
+  top: -24rpx;
+  left: 0;
+}
+
+.comment .nomore {
+  color: #e5e5e5;
+  padding-bottom: 35rpx;
+}
+
+.comment .send {
+  width: 80rpx;
+  height: 50rpx;
+  background: #3f9bff;
+  line-height: 50rpx;
+  border-radius: 5rpx;
+  margin-top: 5rpx;
+}
+.comment .dm {
+  height: 50rpx;
+  background: #3f9bff;
+  line-height: 50rpx;
+  border-radius: 5rpx;
+  margin-top: 5rpx;
+}
+.comment .icon-setting{
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.popup-example--bottom .zan-popup__container {
+  left: 0;
+  right: 0;
+}
+/*弹幕颜色滑块  */
+.color-box{
+  width: 100%;
+  height: 140rpx;
+  white-space: nowrap; display: flex
+}
+.select-color{
+  margin: 15rpx;
+  display: inline-block;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 1rpx solid #ececec
+}
+.checkedColor{
+  border: 5rpx solid greenyellow
+}

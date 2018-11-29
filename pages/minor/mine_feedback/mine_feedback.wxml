@@ -1,0 +1,23 @@
+<view class='c66 alic fs32 pt35 pb20'>常见问题</view>
+
+<view class='pl20 bgcff fs28 c33 feedback'>
+   <view class='bdb item pr20 {{zhaneq==0?"":"ovhitem"}}' bindtap='zhan' data-eq='0'>
+     <view><text>如何绑定机顶盒？</text><image src='../../../image/more_fr.png' mode='aspectFit' class='fr {{zhaneq==0?"image_top":"image_bottom"}}'></image></view>
+     <view class='fs24 c66'>
+     1.手机微信扫描微信绑定二维码，完成绑定。
+     </view>
+   </view>
+   <view class='item pr20 {{zhaneq==1?"":"ovhitem"}}' bindtap='zhan' data-eq='1' >
+   <view>
+   <text>如何投屏看视频？</text><image src='../../../image/more_fr.png' mode='aspectFit' class='fr {{zhaneq==1?"image_top":"image_bottom"}}'></image></view>
+   <view class='fs24 c66'>1.视频详情页点击电视观看，实现投屏观看</view></view>
+   <!-- <view class='bdb item pr20' bindtap='zhan' data-eq='2'><text>如何安装应用？</text><image src='../../../image/more_fr.png' mode='aspectFit' class='fr {{zhaneq==2?"image_bottom":""}}'></image></view>
+   <view class='bdb item pr20' bindtap='zhan' data-eq='3'><text>关于看单相关问题</text><image src='../../../image/more_fr.png' mode='aspectFit' class='fr {{zhaneq==3?"image_bottom":""}}'></image></view>
+   <view class='item pr20' bindtap='zhan' data-eq='4'><text>关于好友关注相关问题</text><image src='../../../image/more_fr.png' mode='aspectFit' class='fr {{zhaneq==4?"image_bottom":""}}'></image></view> -->
+</view>
+
+<view class='c66 alic fs32 pt20 pb20'>意见反馈</view>
+<view class='pl20 pr20 alic'>
+ <textarea placeholder="请详细描述问题，便于技术人员为您解决" placeholder-style="color:#ddd;font-size:12px;text-align:center;"  class='pt20'/>
+ <view class='submit bsz cff fs30 wp100 alic'>提交</view>
+ </view>

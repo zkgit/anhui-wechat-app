@@ -1,0 +1,98 @@
+<view>
+  <view class='user-head'>
+    <view class='user-head-bg-box'>
+      <image class='user-head-bg' mode='aspectFill' src='{{avatarUrl}}'></image>
+    </view>
+    <view class='user-head-info'>
+      <image class='user-head-logo' src='{{avatarUrl}}'></image>
+      <view>
+        <text class='user-head-name'>{{nickName}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='user-nav-center'>
+
+    <view class='user-nav-flx'>
+      <navigator url="../minor/mine_order/mine_order" hover-class="none">
+        <image src='../../image/mine_icon1.png' mode='aspectFit'></image>
+        <view>
+          <text>预约</text>
+        </view>
+      </navigator>
+    </view>
+
+    <view class='user-nav-flx'>
+      <navigator url="../minor/mine_history/mine_history" hover-class="none">
+        <image src='../../image/mine_icon2.png' mode='aspectFit'></image>
+        <view>
+          <text>历史</text>
+        </view>
+      </navigator>
+
+    </view>
+    <view class='user-nav-flx'>
+      <navigator url="../minor/mine_collect/mine_collect" hover-class="none">
+        <image src='../../image/mine_icon3.png' mode='aspectFit'></image>
+        <view>
+          <text>收藏</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <view class='user-nav-bottom1'>
+    <navigator url="../minor/mine_point/mine_point" hover-class="none">
+      <view class='user-nav-hit'>
+        <image class='image_icon' src='../../image/mine_icon4.png' mode='aspectFit'></image>
+        <text>  我的积分</text>
+        <image class='image_more' src='../../image/more_fr.png' mode='aspectFit'></image>
+      </view>
+    </navigator>
+
+    <view class='nav-line'></view>
+    <navigator url="../minor/mine_orderlist/mine_orderlist" hover-class="none">
+      <view class='user-nav-hit'>
+        <image class='image_icon' src='../../image/mine_icon5.png' mode='aspectFit'></image>
+        <text>  我的订购</text>
+        <image class='image_more' src='../../image/more_fr.png' mode='aspectFit'></image>
+      </view>
+    </navigator>
+    
+    <view class='nav-line'></view>
+    <navigator url="../minor/mine_password/mine_password" hover-class="none">
+      <view class='user-nav-hit'>
+        <image class='image_icon' src='../../image/mine_icon6.png' mode='aspectFit'></image>
+        <text>  消费密码</text>
+        <image class='image_more' src='../../image/more_fr.png' mode='aspectFit'></image>
+      </view>
+    </navigator>
+  </view>
+
+  <view class='user-nav-bottom1'  >
+     <navigator url="../minor/mine_device/mine_device" hover-class="none"> 
+      <view class='user-nav-hit' >
+        <image class='image_icon' src='../../image/mine_icon4.png' mode='aspectFit'></image>
+        <text>  账号绑定</text>
+        <image class='image_more' src='../../image/more_fr.png' mode='aspectFit'></image>
+      </view>
+     </navigator> 
+
+    
+    <!-- <view class='user-nav-hit'> -->
+      <!-- <navigator url="../minor/mine_feedback/mine_feedback" hover-class="none"> -->
+        <!-- <image class='image_icon' src='../../image/mine_icon9.png' mode='aspectFit'></image>
+        <text>我的IPTV</text>
+        <image class='image_more' src='../../image/more_fr.png' mode='aspectFit'></image> -->
+      <!-- </navigator> -->
+    <!-- </view> -->
+
+
+    <view class='user-nav-hit'>
+       <navigator url="../minor/mine_feedback/mine_feedback" hover-class="none"> 
+        <image class='image_icon' src='../../image/mine_icon5.png' mode='aspectFit'></image>
+        <text>自主服务</text>
+        <image class='image_more' src='../../image/more_fr.png' mode='aspectFit'></image>
+       </navigator> 
+    </view>
+  </view>
+</view>

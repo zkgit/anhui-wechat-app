@@ -1,0 +1,129 @@
+/* pages/minor/mine_device/mine_device.wxss */
+
+page {
+  background: #f0f0f0;
+}
+
+.device {
+  line-height: 108rpx;
+  position: relative;
+}
+
+.list-top {
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #fafafa;
+}
+
+.device-list {
+  height: 108rpx;
+  line-height: 108rpx;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  /* margin-bottom: 20rpx; *//* width: auto; */
+  border-left: 4px solid #ff5f00;
+}
+
+.device-edit {
+  width: 92rpx;
+  height: 48rpx;
+  background: #999;
+  position: absolute;
+  right: 75rpx;
+  border-radius: 8rpx;
+  top: 30rpx;
+  line-height: 48rpx;
+}
+
+.device-img-box{
+  width: 60rpx;height:100%;position: absolute; right: 48rpx;line-height:2.4
+}
+.device-img {
+  width: 30rpx;
+  height: 5rpx;
+}
+
+.bd-ok {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+}
+
+.device-name {
+  padding: 0 35rpx;
+  width: 65%;
+}
+.device-add-btn{
+  background: #fff;
+}
+
+.editline{
+  position: fixed;
+  width: 100%;
+  background: #fafafa;
+  border-top: 2rpx solid #e5e5e5;
+  height: 88rpx;
+  line-height: 88rpx;
+  bottom: 0; 
+}
+.editline .l-bor{ border-right: 2rpx solid #e5e5e5;}
+.dialog-container {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  width: 640rpx;
+  height: 360rpx;
+  font-size: 16px;
+  overflow: hidden;
+  /* transition: all 0.2s linear; */
+  border-radius: 4px;
+  background-color: #fff;
+  transform: translate3d(-50%, -50%, 0);
+  color: #333;
+  z-index: 11;
+}
+
+.dialog__footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  line-height:50px ;
+  display:flex;
+  border-top:1px solid  #e5e5e5
+}
+.dialog__button{
+  flex: 1;
+  border-right:1px solid  #e5e5e5;
+  height: 50px;
+  line-height:50px ;
+}
+.eidt-input{
+  margin: 40rpx 60rpx 0;
+  background: #e5e5e5;
+  height: 80rpx;
+  line-height:80rpx; 
+  border-radius: 5px;
+  text-align: center
+}
+.zan-btns .txt{
+  color:#000;text-align:center;font-size: 30rpx;
+}
+
+.zan-btns .v1{
+  padding:30rpx 0 30rpx 0; 
+  border-bottom: 1px solid rgb(240, 240, 240)
+} 
+
+.zan-btns .v2{
+  padding-top:15rpx; 
+} 
+/*选择激活类型弹窗  */
+.type-dialog-model-mask {position: fixed;width: 100%;height: 100%;z-index: 111;top: 0;background-color:rgba(0,0,0,.6);transition:.3s;}
+.type-dialog-model {width: 480rpx;height: 398rpx;left: 18%;top:20%;  background-color:#fff;overflow: hidden;z-index: 999;color: #fff; border-radius:15rpx;}
+.type-dialog-title{font-size:34rpx;border-bottom:1rpx solid rgb(229,229,229);width:408rpx;line-height:1.8;margin:0 auto;text-align:center;padding:15px 0 0;color:#000}
+.type-dialog-content{width:80%;height:152rpx;display: flex;margin:24rpx 0 0 60rpx;}
+.type-dialog-buttom{position:absolute;width:408rpx;height:120rpx;margin-left:36rpx;}
+.type-dialog-buttom .btn1{height:63rpx;width:408rpx;background:rgb(255,95,0);color:#fff;line-height:1.8;font-size:32rpx;border-radius:8rpx}
+.type-dialog-buttom .btn2{height:60rpx;width:180rpx;color:rgb(178,178,178);font-size:30rpx}

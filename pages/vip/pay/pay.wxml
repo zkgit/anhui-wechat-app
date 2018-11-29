@@ -1,0 +1,68 @@
+<!-- 订单详情 -->
+<import src="../../../style/dist/stepper/index.wxml" />
+
+<view class='paydetail'>
+  <image class='wp100' mode='widthFix' src="../../../image/paytop.png"></image>
+  <scroll-view class="bdb wp100 ovh" scroll-y style='height:320rpx'>
+    <view class="zan-cell" style='flex-direction:column;'>
+        <view class='ovh wp100 pb20'><text class='zan-font-16 c22 pr30 zan-font-bold'>安徽超清iTV会员卡</text> 
+        <!-- <text class='zan-font-14 c7f'>会员年卡/会员月卡</text> -->
+        </view>
+        <view class='ovh wp100'>
+          <text class='zan-font-16 cf5 zan-font-bold'>¥{{priceRange}}</text> 
+          <text class='zan-font-12 c7f fr zan-text-deleted'>¥3558</text>
+        </view>
+    </view>
+    <view class="zan-cell zan-font-14 c7f" style='justify-content:space-between'>
+      <text>运费：免运费</text> 
+      <text>剩余：{{surplus}}</text> 
+      <text>销量：{{sales}}</text>
+    </view>
+    <view style='height:200rpx;'>
+      <view class="zan-cell"  bindtap='closeModal'>
+        <view class="zan-cell__bd zan-font-14 c22" wx:if="{{!showSelectInfo}}">未选  请选择 类型/数量  
+          <view class='zan-arrow'></view>
+        </view>
+        <view class="zan-cell__bd zan-font-14 c22" wx:if="{{showSelectInfo}}">已选 {{curTypeText}}/{{currentNumText}}张  
+          <view class='zan-arrow'></view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+    <view class='tvplay cff fs30' bindtap='toBuy'>立即购买</view>
+</view>
+
+<!--商品弹窗  -->
+<view class="popup-example--bottom zan-popup zan-popup--bottom {{ zanPopupShow ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask" catchtap="toggleBottomPopup"></view>
+    <view class="zan-popup__container">
+      <view class='ord-popup-block'>
+        <view class='ord-popup-head'>
+          <image class='ord-popup-head-img' src='../../../image/paytop_min.png'></image>
+          <view class='ord-popup-head-mid'>
+            <text class='head-mid-text1'>安徽超清iTV会员卡</text>
+            <text class='head-mid-text2'>¥{{currentPrice}}</text>
+          </view>
+          <view class='ord-head-right' bindtap='closeModal'>
+            <view class='zan-icon zan-icon-close'></view>
+          </view>
+        </view>
+        <view class='ord-content'>
+          <text class='label-text'>版本：</text>
+          <view class='ord-content-block'>
+            <button wx:for='{{cardList}}' class='btn {{btnActive==item.goodsId?"btnActive":""}}' data-item='{{item}}' bindtap='changePrice'>{{item.name}}</button>
+          </view>
+        </view>
+        <view class='ord-foot'>
+          <text class='ord-foot-text'>购买数量：</text>
+          <view class='chose-num'>
+            <template is="zan-stepper" data="{{ ...stepper, componentId: 'stepper' }}"/>
+          </view>
+        </view>
+          <view style='height:95rpx;margin-top:56rpx'>     
+            <button class="tvplay cff fs30" bindtap='makeSureChose'>确定</button>
+        </view>    
+      </view>
+  </view>
+</view>
+

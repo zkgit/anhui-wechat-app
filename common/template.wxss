@@ -1,0 +1,178 @@
+/*滑动一级导航*/
+
+/*！！！！！！！！！！！！添加样式请备注！！！！！！！！！！！！！！！！！！*/
+
+.scroll-view_H {
+  white-space: nowrap;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-name {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 16px;
+  color: #2b2e33;
+  border-bottom: 2px solid transparent;
+  padding: 10px;
+}
+
+.nav-hover {
+  color: #f06000;
+  border-bottom: 2px solid #f06000;
+}
+
+/*列表页面  */
+
+.listNews {
+  margin: 0;
+  overflow: hidden;
+  /* border-bottom: 1rpx solid #e6e6e6; */
+}
+
+/* .listNews:after {
+  content: "";
+  flex: auto;
+} */
+
+.listNews .listTitle {
+  display: flex;
+  height: 100rpx;
+  font-size: 30rpx;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.listNews .listTitle .listText {
+  display: flex;
+  align-items: flex-end;
+  height: 100rpx;
+  line-height: 90rpx;
+  margin-left: 20rpx;
+}
+
+.listNews .listTitle .listText:before {
+  /* content:'';
+    width:2px;
+    background:#f06000;
+    border-radius: 2px;
+    display:inline-block;
+    margin: 2px 4px 0 0;
+    height:14px;
+    align-self:center; */
+}
+
+.listNews .listTitle .listMore {
+  display: flex;
+  align-items: flex-end;
+  height: 100rpx;
+  line-height: 90rpx;
+  margin-left: 20rpx;
+}
+
+.listNews .listTitle .text {
+  font-size: 30rpx;
+  color: #000;
+}
+
+.listNews .listTitle .more {
+  color: #666;
+  font-size: 26rpx;
+}
+
+.listNews .listTitle .re-more {
+  color: #666;
+  font-size: 26rpx;
+  margin-right: 20rpx;
+}
+
+.listNews .listTitle .img {
+  width: 13rpx;
+  height: 92rpx;
+  margin: 0 20rpx 0 10rpx;
+}
+
+.listNews .listTitle .refresh {
+  width: 26rpx;
+  height: 92rpx;
+  margin-right: 10rpx;
+}
+
+.listNews .list-flex {
+  display: flex;
+  justify-content: initial;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.listNews .listBox {
+  width: 246rpx;
+  /* margin-top:8px; */
+  height: 404rpx;
+  margin-right: 6rpx;
+}
+
+.listNews .listBox:nth-child(3n) {
+  margin-right: 0rpx;
+}
+
+.listNews .listBox .boxPic {
+  height: 330rpx;
+  position: relative;
+}
+
+.listNews .listBox image {
+  width: 100%;
+  height: 330rpx;
+}
+
+.listNews .listBox .boxPic .time {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 3px 8px;
+  font-size: 12px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.listNews .listBox .boxPic .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 37px;
+  height: 37px;
+}
+
+.listNews .listBox .boxTitle1, .listNews .listBox .boxTitle2 {
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.listNews .listBox .boxTitle1 {
+  height: 75rpx;
+  line-height: 65rpx;
+  font-size: 26rpx;
+  color: #222;
+}
+
+.listNews .listBox .boxTitle1 text {
+  margin-left: 20rpx;
+}
+
+/* .listNews .listBox .boxTitle2 {
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  color: #999;
+} */
+
+._line {
+  height: 1rpx;
+  width: 730rpx;
+  margin-left: 20rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+}

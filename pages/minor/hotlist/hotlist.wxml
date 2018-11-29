@@ -1,0 +1,6 @@
+<import src="../../../common/template.wxml" />
+<!--热播排行-->
+<template is="listMore" data="{{_list:list}}" />
+
+<template is="loadings" data="{{loading,loadtxt}}" />
+  

@@ -1,0 +1,120 @@
+<view class="searchRank">
+  <view class="form ptr ">
+    <view class="cl ptr">
+      <view class='fl' bindtap='changezhan'>
+        <text class='fs26 c'>{{type=='vod'?'视频':'频道'}}</text>
+        <image class='jian' src='../../image/search_{{iszhan?"b":"t"}}.png'></image>
+      </view>
+      <input placeholder="请输入片名、主演或导演" placeholder-class='fs26 c99' bindinput='searchsub' value='{{inputval}}' class='fs26 c33' auto-focus/>
+      <image src='../../image/search_qx.png' hidden='{{!inputval}}' bindtap='search_clear' class='qx_btn'></image>
+    </view>
+    <view wx:if="{{iszhan}}" class='typeBox pta fs28 l10 pt20 pb20 alic cff'>
+      <view class="pt20 pb20 {{type=='vod'?'c':''}}" bindtap='changeType' data-type='vod'>视频</view>
+      <view class="pt20 pb20 {{type=='live'?'c':''}}" bindtap='changeType' data-type='live'>频道</view>
+    </view>
+    <view class='fs30 c33 hp100  pta t0  r0 btn alic'>
+      <text bindtap='goback' hidden="{{inputval}}">取消</text>
+      <text bindtap='clicksearch' hidden="{{!inputval}}">搜索</text> </view>
+  </view>
+</view>
+<view class='searchbox'>
+  <view class='default' hidden='{{inputval}}'>
+    <view class='his bdb'>
+      <view class='fs30 c33'>搜索历史
+        <image class='fr mr20' src='../../image/search_del.png' bindtap='nohistory'></image>
+      </view>
+      <view class='pt40 ovh'>
+        <view class='hisli fl pb20 fs26 c33 bgf7' wx:for='{{keyhistory}}' bindtap='keysearch' data-key="{{item}}">{{item}}</view>
+      </view>
+    </view>
+    <view class='' hidden='{{type!="vod"}}'>
+      <view class='fs30 c33 pl20 pr20 pt40 pb40'>热门搜索</view>
+      <view class='hot_ul  pl10 pr10 ovh'>
+        <view class='item fl mb20 ' wx:for="{{hotList}}" bindtap='keysearch' data-key="{{item.word}}">
+          <view class='item_box ovh'>
+            <view class="numbtn fs26 alic mr20 cff {{index==0?'first':(index==1?'two':(index==2?'three':''))}} fl">{{index+1}}</view>
+            <text class='fl fs30 wp70 ellipsis'>{{item.word}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view hidden='{{!textList.length||!inputval}}' class='fs30 c33 bgcff searchText pl20 pr20'>
+    <view class='item bdb' wx:for='{{textList}}' bindtap='keysearch' data-key='{{item}}'>{{item}}</view>
+  </view>
+  <view class='searchresult' hidden='{{!isresult||(type!="vod")}}'>
+    <view class='bgcff pt20 pb10 ovh fixed fs32 c33 searchType wp100 bsz'>
+      <view class='wp50 fl alic {{vodtype==0?"c":""}} hp100 item' bindtap='changevodType' data-vodtype='0'>
+        <view>点播</view>
+      </view>
+      <view class='wp50 fl alic item {{vodtype==1?"c":""}} hp100' bindtap='changevodType' data-vodtype='1'>
+        <view>直播</view>
+      </view>
+    </view>
+    <view class='fixed c33 fs28 bgcff wp100 ovh' hidden='{{vodtype==1}}'>
+      <view wx:for='{{typearr}}' class='dbtype fl alic {{videoType==item.v?"active":""}}' bindtap='sccol' eq='{{index}}' data-videotype='{{item.v}}'>{{item.k}}</view>
+    </view>
+    <scroll-view class='panel list_db wp100 ' scroll-y hidden='{{vodtype!=0}}' lower-threshold='100' bindscrolltolower='scrollLower'>
+      <navigator wx:for="{{searchList}}" hidden="{{searchList.length==0}}" class='item wp100 pl20 pr20 pt40 pb40 bsz' url="../minor/detail-db/detail-db?id={{item.id}}&columnType={{item.videoType}}">
+        <view class='img mr20  fl'>
+          <view class='size-cover ptr'>
+            <image class='wp100 hp100 pta l0 t0' src='{{item.image}}'></image>
+          </view>
+        </view>
+        <view class='ptr fs26 lh24 ovh'>
+          <view class='fs32 c ellipsis '>{{item.title}}</view>
+          <view class='tag pt10 pb10 cff'>
+            <text class='dsib mr10 fs26' wx:for="{{item.tags}}" wx:if="{{item}}" >{{item}}</text>
+          </view>
+          <view class='ellipsis c99'>年份：{{item.year}}</view>
+          <view class='c99  actor ovh'>主演：{{item.actors}}</view>
+          <view class='ser_play mt20 fs28 cff dsib'>查看详情</view>
+        </view>
+      </navigator>
+      <view class='fs28 c33 alic wp100 mt70 pb20'>{{loadtext}}</view>
+    </scroll-view>
+
+    <scroll-view class='panel list_zb wp100 ' scroll-y hidden='{{vodtype!=1}}' lower-threshold='100' bindscrolltolower='scrollLower'>
+      <navigator wx:for="{{searchList}}" hidden="{{searchList.length==0}}" class='item wp100 pl20 pr20 pt40 pb40 bsz' url="../minor/detail-db/detail-db?id={{item.id}}&columnType={{item.videoType}}">
+        <view class='img mr20  fl'>
+          <view class='size-cover ptr'>
+            <image class='wp100 hp100 pta l0 t0' src='{{item.image}}'></image>
+            <view class='channel_info pta alic fs26'>
+              <image class='mr10' src='http://ikanpic.kanketv.com/image/live/icon2/{{item.kankeChannel}}.png'></image>
+              <text>{{item.channelName}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='ptr fs26 lh24 ovh'>
+          <view class='fs32 c ellipsis '>{{item.title}}</view>
+          <view class='tag pt10 pb10 cff'>
+            <text class='dsib mr10 fs26' wx:for="{{item.tags}}" wx:if="{{item}}">{{item}}</text>
+          </view>
+          <view class='ellipsis c99'>年份：{{item.year}}</view>
+          <view class='c99  actor ovh'>主演：{{item.actors}}</view>
+          <view class='ser_play mt20 fs28 cff dsib'>
+            <image src='../../image/search-icon-play.png' class='mr10'></image>
+            <text>查看详情</text>
+          </view>
+        </view>
+      </navigator>
+      <view class='fs28 c33 alic wp100 mt70 pb20'>{{loadtext}}</view>
+    </scroll-view>
+  </view>
+
+  <scroll-view class='liveresult' hidden="{{!isresult||(type!='live')}}">
+    <view wx:for='{{searchList}}' class='item pl20 pt20 ptr bsz ovh'>
+      <navigator href='../hminor/detail-zb/detail-zb?channelId={{item.channelId}}'>
+        <image src='{{item.icon}}' class='channel_img fl'></image>
+        <view class='channel_right bdb'>
+          <view class='fs32 c33'>{{item.channelName}}</view>
+          <view class='fs26 c'>正在播放：{{item.epgs[0].title}}</view>
+        </view>
+      </navigator>
+      <view class='pta r0 channel_play'>
+        <image src='../../image/his_tv.png' class='pta '></image>
+      </view>
+    </view>
+    <view class='fs28 c33 alic wp100 pt20 pb20'>{{loadtext}}</view>
+  </scroll-view>
+</view>

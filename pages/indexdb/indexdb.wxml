@@ -1,0 +1,70 @@
+<import src="../../common/template.wxml" />
+ <view class="searchRank">
+    <navigator url="../search/search">
+      <view class="form">
+        <view>
+          <icon type="search" size="15" color="#8891a7" catchtap="deleteTxt" />
+          <view class="cl">{{value}}</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+
+<view class="stv-container">
+  <view class="tab-bar">
+    <view wx:for="{{tabs}}" wx:key="unique" data-index="{{index}}" data-type='{{item.type}}' bindtap="handlerTabTap" class="tab {{activeTab==index?'tab-active':''}}" style="width: {{stv.windowWidth/tabs.length}}px">
+      <text>{{item.name}}</text>
+    </view>
+    <view style="width: {{stv.lineWidth}}px; left: {{stv.offset/tabs.length}}px" class="under-line {{!stv.tStart? 'withAnimate': ''}}"></view>
+  </view>
+
+  <view class='type-ly'>
+    <!--横向滑动  -->
+    <scroll-view class="type-navbar" scroll-x>
+      <view class="type-box" wx:for-items="{{categories.region}}" wx:key="id">
+        <view id='{{index}}' data-type='region' data-value='{{item}}' class="type-navbar-item {{region == index ? 'type-item-on' : ''}}" bindtap="tabClick">
+          {{item}}
+        </view>
+      </view>
+    </scroll-view>
+    <scroll-view class="type-navbar" scroll-x>
+      <view class="type-box" wx:for-items="{{categories.tag}}" wx:key="id">
+        <view id="{{index}}" data-type='tag' class="type-navbar-item {{tag == index ? 'type-item-on' : ''}}" bindtap="tabClick">
+          {{item}}
+        </view>
+      </view>
+    </scroll-view>
+    <scroll-view class="type-navbar" scroll-x>
+      <view class="type-box" wx:for-items="{{categories.year}}" wx:key="id">
+        <view id="{{index}}" data-type='year' class="type-navbar-item {{year == index ? 'type-item-on' : ''}}" bindtap="tabClick">
+          {{item}}
+        </view>
+      </view>
+    </scroll-view>
+    <!--横向滑动结束  -->
+  </view>
+  <view>
+    <template is="listMoredb" data="{{_list:siftings}}" />
+  </view>
+
+
+
+
+  <!-- 内容  -->
+  <!-- <view class="scroll-view"> -->
+  <!-- <scroll-view style="height:100%" scroll-y> -->
+
+  <!-- <view bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd" class="scroll-view-wrapper {{!stv.tStart? 'withAnimate': ''}}" style="left: -{{stv.offset}}px">
+
+        <view style="width: {{stv.windowWidth}}px;" wx:for="{{tabs}}" wx:key="unique" class="one-scene">
+        
+        </view>
+
+      </view>
+    <!-- </scroll-view> -->
+  <!-- </view>  -->
+  <!--内容结束   -->
+  <view>
+    <template is="loadings" data="{{loading,loadtxt}}" />
+  </view>
+</view>

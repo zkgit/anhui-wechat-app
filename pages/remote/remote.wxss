@@ -1,0 +1,26 @@
+page{background:#f1f0f5}
+.remote{width:100%;height:auto}
+.remote .item image{width:50rpx;pointer-events:none;}
+.remote .item .img1{display:inline-block;}
+.remote .item .img2{display:none}
+.remote .itemactive .img1{display:none}
+.remote .itemactive .img2{display:inline-block}
+.remote .key_num{width:176rpx;height:50rpx;background:#fff;border-radius:25rpx;line-height:50rpx;margin:0 auto}
+.remote .key_num .active{background:#ff5e00;height:50rpx;color:#fff;border-radius:25rpx}
+.key_vol{width:490rpx;height:74rpx;margin:80rpx auto 20rpx}
+.key_vol .item,.key_vol .item image{width:161rpx;height:74rpx}
+.key_vol .vol{margin:0 2rpx;padding:19rpx 0}
+.key_vol .vol image{width:38rpx;height:36rpx}
+.num{width:636rpx;margin:60rpx auto 0}
+.num .li{width:104rpx;height:104rpx;float:left;margin:0 54rpx 20rpx;background:#e7e7e7;line-height:104rpx;border-radius:52rpx;text-align:center;color:42rpx}
+.num .li:active{background:#ff9e66;color:#fff}
+.svg{width:479rpx;height:496rpx;margin:60rpx auto 0}
+.svg .svgbg{width:479rpx;height:479rpx}
+.svg .cover{position:absolute;width:239.5rpx;height:239.5rpx;transform:rotate(45deg);-ms-transform:rotate(45deg);-webkit-transform:rotate(45deg);z-index:4}
+.svg .svg-up{left:117.5rpx;top:-49rpx}
+.svg .svg-bottom{left:117.5rpx;bottom:-49rpx}
+.svg .svg-right{right:-49rpx;top:117.5rpx}
+.svg .svg-left{left:-49rpx;top:117.5rpx}
+.svg .svg-ok{position:absolute;width:206rpx;height:206rpx;top:0;left:0;margin:136.5rpx 0 0 136.5rpx;border-radius:103rpx;z-index:5;background: url(http://miniapps.kanketv.com/image/apptest/ok.png) no-repeat;background-size:contain}
+.svg .svg-ok-active{background: url(http://miniapps.kanketv.com/image/apptest/ok_press.png) no-repeat;background-size:contain}
+

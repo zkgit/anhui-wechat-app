@@ -1,0 +1,39 @@
+page {
+  background: #f6f6f6;
+}
+
+.card-bg {
+  background: #fff;
+}
+
+.card-bg-sd {
+  box-shadow: 0px 5px 4px hsla(0, 0%, 68%, 0.3);
+}
+
+.total-bg {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 15px;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
+}
+
+.total-bg-solid {
+  border-bottom: 1px solid #eee;
+}
+
+.total-bm-bg {
+  position: absolute;
+  bottom: 0;
+  height: 98rpx;
+  width: 100%;
+  line-height: 98rpx;
+  background: #fff;
+}
+
+.pay-btn {
+  background: #ff5f00;
+  color: #fff;
+}
